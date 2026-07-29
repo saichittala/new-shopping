@@ -28,12 +28,12 @@
     --text-hero-sub: clamp(16px, 2vw, 22px);
 
     /* ── FONT WEIGHTS ── */
-    --fw-light: 300;
-    --fw-regular: 400;
-    --fw-medium: 500;
-    --fw-semibold: 600;
-    --fw-bold: 700;
-    --fw-extrabold: 700;
+    --fw-light: 250;
+    --fw-regular: 300;
+    --fw-medium: 350;
+    --fw-semibold: 450;
+    --fw-bold: 500;
+    --fw-extrabold: 500;
 
     /* ── FONT FAMILIES ── */
     --font: -apple-system, BlinkMacSystemFont, 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;

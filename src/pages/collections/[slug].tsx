@@ -13,8 +13,11 @@ import { CollectionFilters } from "@components/collection/collection-filters";
 import { GetServerSideProps } from "next";
 import i18nConfig from "../../../next-i18next.config";
 
+import { useState } from "react";
+
 export default function Collections() {
   const { t } = useTranslation("common");
+  const [gridCols, setGridCols] = useState(3);
 
   return (
     <div className="border-t-2 border-borderBottom">
@@ -44,8 +47,8 @@ export default function Collections() {
           </div>
 
           <div className="w-full ltr:lg:-ml-9 rtl:lg:-mr-9">
-            <CollectionTopBar />
-            <ProductGrid />
+            <CollectionTopBar gridCols={gridCols} setGridCols={setGridCols} />
+            <ProductGrid gridCols={gridCols} />
           </div>
         </div>
         <Subscription />

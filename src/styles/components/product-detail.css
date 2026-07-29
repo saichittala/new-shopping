@@ -215,7 +215,6 @@
     text-align: center;
     margin-top: var(--space-2);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
     font-weight: var(--fw-semibold);
 }
 
@@ -243,7 +242,6 @@
     font-weight: var(--fw-bold);
     color: var(--gray-500);
     margin-bottom: var(--space-4);
-    letter-spacing: 0.08em;
     list-style: none;
     padding: 0;
     text-transform: uppercase;
@@ -354,7 +352,6 @@
     font-weight: var(--fw-bold);
     color: var(--gray-900);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
     margin-bottom: var(--space-3);
     margin-top: var(--space-5);
 }
@@ -363,7 +360,6 @@
     font-weight: var(--fw-medium);
     color: var(--gray-600);
     text-transform: none;
-    letter-spacing: normal;
     margin-left: 4px;
 }
 
@@ -380,7 +376,6 @@
     font-weight: var(--fw-bold);
     color: var(--gray-900);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
     margin: 0;
 }
 
@@ -390,7 +385,6 @@
     color: var(--gray-900);
     text-decoration: underline;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
     cursor: pointer;
     background: none;
     border: none;
@@ -424,7 +418,6 @@
     font-size: var(--text-sm) !important;
     font-weight: var(--fw-semibold) !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
     cursor: pointer !important;
     transition: background-color var(--duration-fast) ease !important;
     box-shadow: var(--shadow-sm) !important;

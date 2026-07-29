@@ -4,20 +4,14 @@ import { AnimatePresence } from "framer-motion";
 import { ManagedUIContext } from "@contexts/ui.context";
 import ManagedModal from "@components/common/modal/managed-modal";
 import ManagedDrawer from "@components/common/drawer/managed-drawer";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { QueryClient, QueryClientProvider, HydrationBoundary } from "@tanstack/react-query";
 import Toaster from "@components/ui/toast/toaster";
 // import { ReactQueryDevtools } from "@tanstack/react-query/devtools";
 import { appWithTranslation } from "next-i18next";
 import { DefaultSeo } from "@components/common/default-seo";
 
-import { Inter } from "next/font/google";
 import "@fontsource/satisfy";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 // base css file
 import "@styles/scrollbar.css";
@@ -43,6 +37,27 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
     queryClientRef.current = new QueryClient();
   }
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const handleStart = (url: string) => {
+      if (url !== router.asPath) {
+        setLoading(true);
+      }
+    };
+    const handleComplete = () => setLoading(false);
+
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
+
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    };
+  }, [router]);
+
   const dir = getDirection(router.locale);
   useEffect(() => {
     document.documentElement.dir = dir;
@@ -50,7 +65,20 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
   const Layout = (Component as any).Layout || Noop;
 
   return (
-    <div className={`${inter.variable} font-sans`}>
+    <div>
+      {loading && (
+        <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white/95 backdrop-blur-sm transition-opacity duration-300">
+          <div className="flex flex-col items-center gap-4">
+            <span className="text-xl font-bold text-black uppercase select-none animate-pulse">
+              MAHARA
+            </span>
+            <svg className="animate-spin h-6 w-6 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+            </svg>
+          </div>
+        </div>
+      )}
       <AnimatePresence mode="wait" onExitComplete={handleExitComplete}>
         <QueryClientProvider client={queryClientRef.current}>
           {/* @ts-ignore */}

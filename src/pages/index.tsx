@@ -38,7 +38,9 @@ export default function Home() {
       </Container>
 
       {/* ── New Arrivals ── */}
-      <NewArrivalsProductFeedWithTabs />
+      <Container>
+        <NewArrivalsProductFeedWithTabs />
+      </Container>
 
       {/* ── Inner content sections ── */}
       <Container>

@@ -72,22 +72,6 @@
 .new-arrivals-feed {
     width: 100%;
     margin-bottom: var(--space-20);
-    padding-left: var(--space-4);
-    padding-right: var(--space-4);
-}
-
-@media (min-width: 640px) {
-    .new-arrivals-feed {
-        padding-left: var(--space-6);
-        padding-right: var(--space-6);
-    }
-}
-
-@media (min-width: 1024px) {
-    .new-arrivals-feed {
-        padding-left: var(--space-8);
-        padding-right: var(--space-8);
-    }
 }
 
 @media (min-width: 768px) {
@@ -98,8 +82,6 @@
 
 @media (min-width: 1280px) {
     .new-arrivals-feed {
-        padding-left: var(--space-12);
-        padding-right: var(--space-12);
         margin-bottom: 96px;
     }
 }

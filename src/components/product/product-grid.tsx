@@ -9,9 +9,10 @@ import { Product } from "@framework/types";
 
 interface ProductGridProps {
   className?: string;
+  gridCols?: number;
 }
 
-export const ProductGrid: FC<ProductGridProps> = ({ className = "" }) => {
+export const ProductGrid: FC<ProductGridProps> = ({ className = "", gridCols = 3 }) => {
   const { query } = useRouter();
   const {
     isFetching: isLoading,
@@ -26,7 +27,7 @@ export const ProductGrid: FC<ProductGridProps> = ({ className = "" }) => {
 
   return (
     <>
-      <div className={`search-product-grid ${className}`}>
+      <div className={`search-product-grid ${gridCols === 5 ? 'search-product-grid--5-cols' : ''} ${className}`}>
         {isLoading && !data?.pages?.length ? (
           <ProductFeedLoader limit={20} uniqueKey="search-product" />
         ) : (

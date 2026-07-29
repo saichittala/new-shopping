@@ -12,8 +12,11 @@ import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
 import { GetStaticProps } from "next";
 
+import { useState } from "react";
+
 export default function Shop() {
   const { t } = useTranslation("common");
+  const [gridCols, setGridCols] = useState(3);
 
   return (
     <>
@@ -45,8 +48,8 @@ export default function Shop() {
 
           {/* Main content */}
           <div className="search-page__content">
-            <SearchTopBar />
-            <ProductGrid />
+            <SearchTopBar gridCols={gridCols} setGridCols={setGridCols} />
+            <ProductGrid gridCols={gridCols} />
           </div>
         </div>
       </Container>
