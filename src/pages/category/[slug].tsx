@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
 				"forms",
 				"menu",
 				"footer",
-			], i18nConfig)),
+			], i18nConfig as any)),
 		},
 	};
 };
