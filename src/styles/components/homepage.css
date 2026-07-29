@@ -195,6 +195,7 @@
     padding: 0;
     margin: 0 0 var(--space-6) 0;
     border-bottom: none;
+    height: fit-content;
 }
 
 /* Base tab item — outline ghost button (matching Account button) */
@@ -208,7 +209,7 @@
     font-weight: var(--fw-medium);
     color: var(--gray-800);
     cursor: pointer;
-    padding: 12px 16px;
+    padding: 10px 14px;
     /* reduced padding for perfect fit content */
     border: 1px solid var(--gray-300);
     /* outline border */
@@ -253,7 +254,7 @@
     color: var(--primary-600);
     /* brand color text */
     cursor: pointer;
-    padding: 12px 16px;
+    padding: 10px 14px;
     /* reduced padding for perfect fit content */
     border: 1px solid var(--primary-600);
     /* brand color border */
