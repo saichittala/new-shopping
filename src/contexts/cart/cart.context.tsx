@@ -30,7 +30,7 @@ import { toast } from "@utils/toast";
 
 export const CartProvider: React.FC = (props) => {
   const [savedCart, saveCart] = useLocalStorage(
-    `chawkbazar-cart`,
+    `mahara-cart`,
     JSON.stringify(initialState)
   );
   const [state, dispatch] = React.useReducer(

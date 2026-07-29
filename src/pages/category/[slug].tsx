@@ -5,6 +5,7 @@ import { ProductGrid } from "@components/product/product-grid";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import CategoryBanner from "@containers/category-banner";
 import { GetServerSideProps } from "next";
+import i18nConfig from "../../../next-i18next.config";
 
 export default function Category() {
 	return (
@@ -30,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
 				"forms",
 				"menu",
 				"footer",
-			])),
+			], i18nConfig)),
 		},
 	};
 };

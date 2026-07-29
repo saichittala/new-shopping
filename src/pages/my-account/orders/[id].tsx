@@ -3,6 +3,7 @@ import AccountLayout from "@components/my-account/account-layout";
 import OrderDetails from "@components/order/order-details";
 import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import i18nConfig from "../../../../next-i18next.config";
 
 export default function OrderPage() {
 	return (
@@ -22,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
 				"forms",
 				"menu",
 				"footer",
-			])),
+			], i18nConfig)),
 		},
 	};
 };

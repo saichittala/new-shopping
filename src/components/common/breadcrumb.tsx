@@ -51,7 +51,7 @@ export const BreadcrumbItems = (props: any) => {
   }, []);
 
   return (
-    <div className="breadcrumb chawkbazarBreadcrumb">
+    <div className="breadcrumb maharaBreadcrumb">
       <ol className="breadcrumb__list">{children}</ol>
     </div>
   );

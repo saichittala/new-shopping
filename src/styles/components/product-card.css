@@ -12,7 +12,7 @@
     /* Force uniform card heights */
     box-sizing: border-box;
     overflow: hidden;
-    border-radius: var(--radius-md);
+    border-radius: 0;
     cursor: pointer;
     background-color: var(--white);
     transition: transform var(--duration-base) var(--ease-standard),
@@ -148,8 +148,8 @@
     position: relative;
     margin-bottom: 0;
     width: 100%;
-    aspect-ratio: 3 / 4;
-    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -193,12 +193,12 @@
 .product-card__image {
     object-fit: cover;
     background-color: var(--gray-300);
-    border-radius: var(--radius-sm);
+    border-radius: 0;
 }
 
 .product-card__image--grid {
     width: 100%;
-    border-radius: var(--radius-md);
+    border-radius: 0;
     transition: opacity var(--duration-base) ease-in;
 }
 
@@ -213,7 +213,7 @@
 
 .product-card__image--gridSlim {
     width: 100%;
-    border-radius: var(--radius-md);
+    border-radius: 0;
     transition: transform var(--duration-fast) ease-in;
 }
 
@@ -222,7 +222,7 @@
 }
 
 .product-card__image--list {
-    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    border-radius: 0;
     transition: transform var(--duration-fast) ease-in;
 }
 

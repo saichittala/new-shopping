@@ -11,6 +11,7 @@ import { useTranslation } from "next-i18next";
 import CollectionTopBar from "@components/collection/collection-top-bar";
 import { CollectionFilters } from "@components/collection/collection-filters";
 import { GetServerSideProps } from "next";
+import i18nConfig from "../../../next-i18next.config";
 
 export default function Collections() {
   const { t } = useTranslation("common");
@@ -63,7 +64,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
         "forms",
         "menu",
         "footer",
-      ])),
+      ], i18nConfig)),
     },
   };
 };

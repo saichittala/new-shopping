@@ -1,6 +1,6 @@
 import type { GetStaticProps } from 'next';
 import Container from '@components/ui/container';
-import HeroSlider from '@containers/hero-slider';
+import HeroBanner from '@containers/hero-banner';
 import Layout from '@components/layout/layout';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { API_ENDPOINTS } from '@framework/utils/api-endpoints';
@@ -13,7 +13,6 @@ import CategoryBlockIcon from '@containers/category-block-icon';
 import { ROUTES } from '@utils/routes';
 import {
   homeSevenBanner as banner,
-  homeContemporaryHeroSlider as banners,
   contemporaryBanner1,
   contemporaryBanner2,
 } from '@framework/static/banner';
@@ -27,14 +26,8 @@ import RecentProductFeed from '@components/product/feeds/recent-product-feed';
 export default function Home() {
   return (
     <>
-      {/* ── Hero Slider ── */}
-      <HeroSlider
-        data={banners}
-        variantRounded="default"
-        variant="fullWidth"
-        prevNextButtons="none"
-        className="hero-slider hero-slider--full-width"
-      />
+      {/* ── Hero Banner ── */}
+      <HeroBanner />
 
       {/* ── Browse by Category ── */}
       <Container className="categories-section">

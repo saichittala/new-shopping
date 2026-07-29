@@ -225,3 +225,98 @@
     font-size: var(--text-lg);
     color: var(--gray-700);
 }
+
+/* ── Transparent Header Overlay (Homepage Hero Integration) ── */
+.site-header--transparent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background-color: transparent !important;
+}
+
+.site-header--transparent .site-header__inner {
+    background-color: transparent;
+    border-bottom: none !important;
+}
+
+/* When transparent and not scrolled, items are white */
+.site-header--transparent .site-header__inner:not(.is-scrolling) {
+    color: var(--white);
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) img {
+    filter: invert(1) brightness(2) !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) button,
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__search-btn,
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__action-btn {
+    color: var(--white) !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) button svg,
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__search-btn svg,
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__action-btn svg {
+    color: var(--white) !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__search-btn:hover,
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__action-btn:hover {
+    background-color: var(--white) !important;
+    color: var(--gray-900) !important;
+    border-color: var(--white) !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__search-btn:hover svg,
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__action-btn:hover svg {
+    color: var(--gray-900) !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__auth-btn {
+    background-color: transparent !important;
+    color: var(--white) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__auth-btn svg {
+    color: var(--white) !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__auth-btn:hover {
+    background-color: var(--white) !important;
+    color: var(--gray-900) !important;
+    border: none !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__auth-btn:hover svg {
+    color: var(--gray-900) !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) .site-header__badge {
+    background-color: var(--white) !important;
+    color: var(--gray-950) !important;
+}
+
+/* Category outline button integration (trigger class) */
+.site-header--transparent .site-header__inner:not(.is-scrolling) .category-menu__trigger {
+    background-color: transparent !important;
+    color: var(--white) !important;
+    border: none !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) .category-menu__trigger svg {
+    color: var(--white) !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) .category-menu__trigger:hover {
+    background-color: var(--white) !important;
+    color: var(--gray-900) !important;
+    border: none !important;
+}
+
+.site-header--transparent .site-header__inner:not(.is-scrolling) .category-menu__trigger:hover svg {
+    color: var(--gray-900) !important;
+}

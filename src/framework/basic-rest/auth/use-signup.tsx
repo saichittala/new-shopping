@@ -57,7 +57,7 @@ export const useSignUpMutation = () => {
       const promise = signUp(input);
       toast.promise(promise, {
         loading: "Creating your account...",
-        success: "Account created successfully! Welcome to ChawkBazar.",
+        success: "Account created successfully! Welcome to Mahara.",
         error: "Signup failed. Please verify your details.",
       });
       return promise;

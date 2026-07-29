@@ -38,7 +38,7 @@ import { toast } from "@utils/toast";
 
 export const WishlistProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const [savedWishlist, saveWishlist] = useLocalStorage(
-    "chawkbazar-wishlist",
+    "mahara-wishlist",
     JSON.stringify([])
   );
 

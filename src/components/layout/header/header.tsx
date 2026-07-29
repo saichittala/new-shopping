@@ -10,6 +10,9 @@ import { useTranslation } from "next-i18next";
 import CategoryMenu from "@components/ui/category-menu";
 import { FiUser } from "react-icons/fi";
 
+import { useRouter } from "next/router";
+import cn from "classnames";
+
 const AuthMenu = dynamic(() => import("./auth-menu"), { ssr: false });
 const CartButton = dynamic(() => import("@components/cart/cart-button"), {
   ssr: false,
@@ -25,13 +28,15 @@ const Header: React.FC = () => {
   const { t } = useTranslation("common");
   const siteHeaderRef = useRef<HTMLDivElement>(null);
   useAddActiveScroll(siteHeaderRef);
+  const router = useRouter();
+  const isHome = router.pathname === "/";
 
   function handleLogin() {
     setModalView("LOGIN_VIEW");
     return openModal();
   }
   return (
-    <header id="siteHeader" className="site-header">
+    <header id="siteHeader" className={cn("site-header", { "site-header--transparent": isHome })}>
       <div ref={siteHeaderRef} className="site-header__inner innerSticky">
         <div className="site-header__row">
           {/* Logo & Category Outline Dropdown */}

@@ -168,7 +168,7 @@
 }
 
 .prada-category-card:hover .prada-category-label {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Prada Products Grid Styles (1px horizontal/vertical gap) */

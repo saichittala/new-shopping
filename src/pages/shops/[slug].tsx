@@ -4,6 +4,7 @@ import Subscription from "@components/common/subscription";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetServerSideProps } from "next";
 import ShopsSingleDetails from "@components/shops/shops-single-details";
+import i18nConfig from "../../../next-i18next.config";
 
 export default function ShopDetailsPage() {
 	return (
@@ -26,7 +27,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
 				"forms",
 				"menu",
 				"footer",
-			])),
+			], i18nConfig)),
 		},
 	};
 };
