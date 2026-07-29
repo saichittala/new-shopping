@@ -1,0 +1,108 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Sunglasses",
+      "slug": "sunglasses",
+      "productCount": 20,
+      "icon": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=80",
+      "tags": ["luxury", "accessories", "eyewear"],
+      "image": {
+        "id": 1,
+        "thumbnail": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=80",
+        "original": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=80"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Hats and gloves",
+      "slug": "hats-and-gloves",
+      "productCount": 20,
+      "icon": "https://images.unsplash.com/photo-1576871337622-98d48d4aa53e?auto=format&fit=crop&w=600&q=80",
+      "tags": ["luxury", "hats", "ready-to-wear"],
+      "image": {
+        "id": 2,
+        "thumbnail": "https://images.unsplash.com/photo-1576871337622-98d48d4aa53e?auto=format&fit=crop&w=600&q=80",
+        "original": "https://images.unsplash.com/photo-1576871337622-98d48d4aa53e?auto=format&fit=crop&w=600&q=80"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Silks and scarves",
+      "slug": "silks-and-scarves",
+      "productCount": 20,
+      "icon": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=600&q=80",
+      "tags": ["luxury", "scarves", "silk"],
+      "image": {
+        "id": 3,
+        "thumbnail": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=600&q=80",
+        "original": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=600&q=80"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Pouches",
+      "slug": "pouches",
+      "productCount": 20,
+      "icon": "https://images.unsplash.com/photo-1598532187857-3ae15b48be6b?auto=format&fit=crop&w=600&q=80",
+      "tags": ["luxury", "bags", "pouches"],
+      "image": {
+        "id": 4,
+        "thumbnail": "https://images.unsplash.com/photo-1598532187857-3ae15b48be6b?auto=format&fit=crop&w=600&q=80",
+        "original": "https://images.unsplash.com/photo-1598532187857-3ae15b48be6b?auto=format&fit=crop&w=600&q=80"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Jewels",
+      "slug": "jewels",
+      "productCount": 20,
+      "icon": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80",
+      "tags": ["luxury", "jewelry", "jewels"],
+      "image": {
+        "id": 5,
+        "thumbnail": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80",
+        "original": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Headbands and hair accessories",
+      "slug": "headbands-and-hair-accessories",
+      "productCount": 20,
+      "icon": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+      "tags": ["luxury", "hair", "accessories"],
+      "image": {
+        "id": 6,
+        "thumbnail": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+        "original": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Belts",
+      "slug": "belts",
+      "productCount": 20,
+      "icon": "https://images.unsplash.com/photo-1624222247344-550fb8efeb31?auto=format&fit=crop&w=600&q=80",
+      "tags": ["luxury", "belts", "leather"],
+      "image": {
+        "id": 7,
+        "thumbnail": "https://images.unsplash.com/photo-1624222247344-550fb8efeb31?auto=format&fit=crop&w=600&q=80",
+        "original": "https://images.unsplash.com/photo-1624222247344-550fb8efeb31?auto=format&fit=crop&w=600&q=80"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Bag charms and keychains",
+      "slug": "bag-charms-and-keychains",
+      "productCount": 20,
+      "icon": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80",
+      "tags": ["luxury", "keychains", "charms"],
+      "image": {
+        "id": 8,
+        "thumbnail": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80",
+        "original": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80"
+      }
+    }
+  ]
+}

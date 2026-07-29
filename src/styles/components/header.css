@@ -1,0 +1,224 @@
+/* =============================================================
+   Header Component — Semantic Custom CSS
+   ============================================================= */
+
+/* Outer header shell — reserves layout space */
+.site-header {
+    position: relative;
+    z-index: var(--z-header);
+    width: 100%;
+    height: 64px;
+}
+
+@media (min-width: 640px) {
+    .site-header {
+        height: 80px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .site-header {
+        height: 64px;
+    }
+}
+
+/* Fixed inner sticky bar */
+.site-header__inner {
+    position: fixed;
+    z-index: var(--z-header);
+    width: 100%;
+    height: 64px;
+    padding: 0 var(--space-4);
+    background-color: var(--white);
+    color: var(--gray-700);
+    font-family: var(--font);
+    transition: box-shadow var(--duration-base) var(--ease-standard),
+        border-color var(--duration-base) var(--ease-standard),
+        background-color var(--duration-base) var(--ease-standard),
+        backdrop-filter var(--duration-base) var(--ease-standard);
+}
+
+@media (min-width: 640px) {
+    .site-header__inner {
+        height: 80px;
+    }
+}
+
+@media (min-width: 768px) {
+    .site-header__inner {
+        padding: 0 var(--space-8);
+    }
+}
+
+@media (min-width: 1024px) {
+    .site-header__inner {
+        height: 64px;
+        padding: 0 var(--space-6);
+    }
+}
+
+/* Sticky scrolled shadow & solid white background */
+.innerSticky {
+    box-shadow: none !important;
+    border-bottom: 1px solid transparent !important;
+    transition: box-shadow var(--duration-base) var(--ease-standard),
+        border-color var(--duration-base) var(--ease-standard),
+        background-color var(--duration-base) var(--ease-standard) !important;
+}
+
+.innerSticky.is-scrolling {
+    background-color: var(--white) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border-bottom: 1px solid var(--gray-100) !important;
+}
+
+/* Inner content row */
+.site-header__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1920px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+    .site-header__row {
+        gap: var(--space-6);
+    }
+}
+
+/* Logo + Category group */
+.site-header__brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 24px;
+}
+
+/* Actions group (right side) */
+.site-header__actions {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    gap: var(--space-3);
+    margin-left: auto;
+}
+
+@media (min-width: 1024px) {
+    .site-header__actions {
+        display: flex;
+        gap: var(--space-4);
+    }
+}
+
+/* Action buttons (Search, Wishlist, Cart) */
+.site-header__search-btn,
+.site-header__action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: 1px solid transparent !important;
+    border-radius: 100% !important; /* 100% circular buttons */
+    background-color: transparent !important;
+    color: var(--gray-700);
+    box-shadow: none !important;
+    cursor: pointer;
+    transition: var(--transition-colors), border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+    position: relative; /* relative for absolute badge position */
+}
+
+.site-header__search-btn:hover,
+.site-header__action-btn:hover {
+    background-color: var(--white) !important;
+    color: var(--gray-900);
+    border-color: var(--gray-200) !important;
+    box-shadow: var(--shadow-xs) !important;
+}
+
+.site-header__search-btn:focus-visible,
+.site-header__action-btn:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+    box-shadow: none !important;
+}
+
+.site-header__action-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Badge counters for cart and wishlist */
+.site-header__badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 11px !important;
+    font-weight: var(--fw-bold);
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 9999px !important; /* Pill rounded corners */
+}
+
+/* Auth button wrapper */
+.site-header__auth {
+    flex-shrink: 0;
+    margin-top: -2px;
+}
+
+/* Auth button */
+.site-header__auth-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    height: 44px;
+    padding: 0 var(--space-4);
+    border: 1px solid var(--gray-200);
+    border-radius: 99px !important;
+    background-color: var(--white);
+    color: var(--gray-700);
+    font-family: var(--font);
+    font-size: var(--text-sm);
+    font-weight: var(--fw-semibold);
+    box-shadow: var(--shadow-xs);
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition-colors);
+    flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+    .site-header__auth-btn {
+        display: flex;
+    }
+}
+
+.site-header__auth-btn:hover {
+    background-color: var(--gray-50);
+    color: var(--gray-900);
+    border-color: var(--gray-300);
+}
+
+.site-header__auth-btn:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+    box-shadow: var(--shadow-focus-blue);
+}
+
+.site-header__auth-btn svg {
+    font-size: var(--text-lg);
+    color: var(--gray-700);
+}

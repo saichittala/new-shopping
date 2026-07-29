@@ -1,0 +1,48 @@
+/* =============================================================
+   Premium Cards Design System Component
+   ============================================================= */
+
+.card,
+.product-card,
+.vendor-card {
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid transparent !important; /* Transparent border to avoid layout shift */
+    background-color: var(--white) !important;
+    box-shadow: none !important; /* No initial shadow */
+    transition: var(--transition-interactive) !important;
+}
+
+.card:hover,
+.product-card:hover,
+.vendor-card:hover {
+    box-shadow: 0 6px 18px rgba(16, 24, 40, 0.05) !important; /* Very thin, soft shadow */
+    border-color: transparent !important;
+}
+
+/* Badge styling */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: var(--fw-medium);
+    border-radius: var(--radius-sm);
+}
+
+/* Tables styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    font-weight: var(--fw-semibold) !important;
+    color: var(--gray-700) !important;
+    border-bottom: 2px solid var(--gray-200) !important;
+    background-color: var(--gray-50) !important;
+}
+
+td {
+    border-bottom: 1px solid var(--gray-200) !important;
+    color: var(--gray-600) !important;
+}

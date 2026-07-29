@@ -1,0 +1,134 @@
+/* =============================================================
+   Subscription Section — Semantic Custom CSS
+   ============================================================= */
+
+/* Outer wrapper shell */
+.subscription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius-lg);
+    background-color: var(--gray-100);
+    padding: var(--space-10) var(--space-5);
+}
+
+@media (min-width: 640px) {
+    .subscription {
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+    }
+}
+
+@media (min-width: 768px) {
+    .subscription {
+        padding: 56px var(--space-16);
+    }
+}
+
+@media (min-width: 1024px) {
+    .subscription {
+        padding: var(--space-16);
+    }
+}
+
+@media (min-width: 1280px) {
+    .subscription {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Heading block */
+.subscription__content {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+    .subscription__content {
+        margin-bottom: var(--space-8);
+    }
+}
+
+@media (min-width: 1024px) {
+    .subscription__content {
+        margin-bottom: var(--space-10);
+    }
+}
+
+@media (min-width: 1280px) {
+    .subscription__content {
+        text-align: left;
+        margin-bottom: 0;
+        margin-top: -2px;
+    }
+}
+
+/* Description text */
+.subscription__description {
+    font-size: var(--text-xs);
+    color: var(--gray-500);
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    .subscription__description {
+        font-size: var(--text-sm);
+        line-height: 1.75;
+    }
+}
+
+/* Form block */
+.subscription__form {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .subscription__form {
+        width: 384px;
+    }
+}
+
+@media (min-width: 768px) {
+    .subscription__form {
+        width: 545px;
+    }
+}
+
+/* Form row */
+.subscription__form-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+@media (min-width: 640px) {
+    .subscription__form-row {
+        flex-direction: row;
+    }
+}
+
+/* Subscribe button — positioned next to input */
+.subscription__btn {
+    margin-top: var(--space-3);
+    width: 100%;
+    flex-shrink: 0;
+    height: 48px !important;
+}
+
+@media (min-width: 640px) {
+    .subscription__btn {
+        margin-top: 0;
+        margin-left: var(--space-2);
+        width: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .subscription__btn {
+        height: 56px !important;
+    }
+}

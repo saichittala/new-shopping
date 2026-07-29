@@ -1,0 +1,161 @@
+/* =============================================================
+   Premium Form Inputs Design System Component (Untitled UI Specifications)
+   ============================================================= */
+
+/* Field Wrapper */
+.form-field {
+    margin-bottom: var(--space-4);
+    display: block;
+    width: 100%;
+}
+
+/* Labels */
+.form-field__label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--gray-700);
+    margin-bottom: var(--space-2);
+    cursor: pointer;
+}
+
+.form-field__error {
+    font-size: var(--text-xs) !important;
+    color: var(--color-danger) !important;
+    margin-top: var(--space-2) !important;
+    font-weight: var(--fw-medium) !important;
+}
+
+.form-field--required .form-field__label::after {
+    content: " *";
+    color: var(--color-danger);
+}
+
+/* Input Wrapper (for Icons support) */
+.form-field__input-wrap {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Input Fields */
+.form-field__input {
+    width: 100%;
+    appearance: none;
+    box-sizing: border-box;
+    font-family: var(--font) !important;
+    font-size: var(--text-sm) !important;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--gray-200) !important;
+    background-color: var(--white) !important;
+    color: var(--gray-900) !important;
+    min-height: var(--input-height) !important;
+    transition: var(--transition-interactive) !important;
+    padding: var(--space-2) var(--space-4) !important;
+    box-shadow: var(--shadow-xs) !important;
+}
+
+.form-field__input:hover {
+    border-color: var(--gray-300) !important;
+}
+
+.form-field__input:focus {
+    border-color: var(--blue) !important;
+    background-color: var(--white) !important;
+    box-shadow: var(--shadow-focus-blue) !important;
+    outline: none !important;
+}
+
+.form-field__input::placeholder {
+    color: var(--gray-400) !important;
+    opacity: 1;
+}
+
+/* Icons positioning inside inputs */
+.form-field__icon-left {
+    position: absolute;
+    left: var(--space-3);
+    color: var(--gray-400);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 2;
+}
+
+.form-field__icon-right {
+    position: absolute;
+    right: var(--space-3);
+    color: var(--gray-400);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 2;
+}
+
+/* Padding adjusts when icons are present */
+.form-field--has-icon-left .form-field__input {
+    padding-left: 40px !important;
+}
+
+.form-field--has-icon-right .form-field__input {
+    padding-right: 40px !important;
+}
+
+/* Focus color overrides for icons */
+.form-field__input:focus ~ .form-field__icon-left,
+.form-field__input:focus ~ .form-field__icon-right {
+    color: var(--blue) !important;
+}
+
+/* Disabled state */
+.form-field__input:disabled {
+    background-color: var(--gray-50) !important;
+    color: var(--gray-400) !important;
+    cursor: not-allowed !important;
+    border-color: var(--gray-200) !important;
+    box-shadow: none !important;
+}
+
+.form-field__input:disabled ~ .form-field__icon-left,
+.form-field__input:disabled ~ .form-field__icon-right {
+    color: var(--gray-300) !important;
+}
+
+/* Error State styling */
+.form-field--error .form-field__input {
+    border-color: var(--color-danger) !important;
+}
+
+.form-field--error .form-field__input:focus {
+    border-color: var(--color-danger) !important;
+    box-shadow: 0 0 0 4px rgba(217, 45, 32, 0.14) !important;
+}
+
+.form-field--error .form-field__icon-left,
+.form-field--error .form-field__icon-right {
+    color: var(--color-danger) !important;
+}
+
+/* Hint & Helper Text */
+.form-field__hint {
+    margin-top: 6px;
+    font-size: var(--text-xs);
+    line-height: 1.5;
+    color: var(--gray-500);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-field__hint svg {
+    flex-shrink: 0;
+}
+
+.form-field--error .form-field__hint {
+    color: var(--color-danger);
+}

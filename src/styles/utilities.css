@@ -1,0 +1,28 @@
+/* Soft shadow helpers and layering utilities */
+.shadow-xs-ds {
+    box-shadow: var(--shadow-xs);
+}
+
+.shadow-sm-ds {
+    box-shadow: var(--shadow-sm);
+}
+
+.shadow-md-ds {
+    box-shadow: var(--shadow-md);
+}
+
+.shadow-lg-ds {
+    box-shadow: var(--shadow-lg);
+}
+
+.shadow-xl-ds {
+    box-shadow: var(--shadow-xl);
+}
+
+.shadow-2xl-ds {
+    box-shadow: var(--shadow-2xl);
+}
+
+.bg-overlay-ds {
+    background-color: var(--bg-overlay);
+}

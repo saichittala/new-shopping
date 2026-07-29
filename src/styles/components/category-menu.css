@@ -1,0 +1,331 @@
+/* =============================================================
+   All Categories Dropdown Menu — Untitled UI Popover Style
+   ============================================================= */
+
+.category-menu {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Category Toggle Button */
+.category-menu__trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    height: 44px;
+    padding: 0 var(--space-4);
+    font-size: var(--text-sm) !important;
+    font-weight: var(--fw-semibold);
+    color: var(--gray-700);
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs);
+    cursor: pointer;
+    transition: var(--transition-colors);
+    user-select: none;
+}
+
+.category-menu__trigger:hover {
+    background-color: var(--gray-50);
+    color: var(--gray-900);
+    border-color: var(--gray-300);
+}
+
+.category-menu__trigger svg {
+    flex-shrink: 0;
+}
+
+.category-menu__icon-leading {
+    width: 20px;
+    height: 20px;
+    color: var(--gray-500);
+}
+
+.category-menu__icon-trailing {
+    width: 16px;
+    height: 16px;
+    color: var(--gray-400);
+    transition: transform var(--duration-fast) ease;
+}
+
+.category-menu:hover .category-menu__icon-trailing {
+    transform: translateY(2px);
+}
+
+/* Submenu Dropdown Popover (Level 1 Categories) */
+.category-menu__popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: var(--z-dropdown);
+    min-width: 240px;
+    padding: var(--space-2) 0;
+    margin-top: 6px;
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: transform var(--duration-base) var(--ease-spring),
+        opacity var(--duration-base) ease,
+        visibility var(--duration-base) ease;
+}
+
+/* Hover active state */
+.category-menu:hover .category-menu__popover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Add an invisible bridging layer so hover doesn't break when moving cursor to popover */
+.category-menu::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    z-index: var(--z-dropdown);
+    display: none;
+}
+
+.category-menu:hover::after {
+    display: block;
+}
+
+/* Submenu List wrapper */
+.category-menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu Items (Links) */
+.category-menu__item {
+    position: relative;
+}
+
+.category-menu__link {
+    display: flex;
+    align-items: center;
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--text-sm) !important;
+    font-weight: var(--fw-medium);
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: var(--transition-colors);
+    cursor: pointer;
+}
+
+.category-menu__link:hover {
+    background-color: var(--gray-50);
+    color: var(--gray-900);
+}
+
+.category-menu__item-icon {
+    display: inline-flex;
+    margin-right: var(--space-2);
+    color: var(--gray-450);
+}
+
+.category-menu__arrow {
+    margin-left: auto;
+    font-size: 14px;
+    color: var(--gray-400);
+    transition: var(--transition-colors);
+}
+
+.category-menu__link:hover .category-menu__arrow {
+    color: var(--gray-700);
+}
+
+/* Level 2 Submenus (Dropdown hover popover for children) */
+.category-menu__child-popover {
+    position: absolute;
+    top: -8px; /* Alignment */
+    left: 100%; /* Float right next to item */
+    margin-left: 2px;
+    z-index: var(--z-dropdown);
+    min-width: 220px;
+    padding: var(--space-2) 0;
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: transform var(--duration-base) var(--ease-spring),
+        opacity var(--duration-base) ease,
+        visibility var(--duration-base) ease;
+}
+
+.category-menu__item:hover .category-menu__child-popover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Mega menu overlay (for Level 2 with mega columns) */
+.category-menu__mega-popover {
+    position: absolute;
+    top: -8px;
+    left: 100%;
+    margin-left: 2px;
+    z-index: var(--z-dropdown);
+    display: flex;
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 630px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: transform var(--duration-base) var(--ease-spring),
+        opacity var(--duration-base) ease,
+        visibility var(--duration-base) ease;
+}
+
+@media (min-width: 1280px) {
+    .category-menu__mega-popover {
+        width: 900px;
+    }
+}
+
+.category-menu__item:hover .category-menu__mega-popover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.category-menu__mega-columns {
+    flex-grow: 1;
+}
+
+.category-menu__mega-right {
+    display: none;
+    border-left: 1px solid var(--gray-100);
+    padding: var(--space-5);
+}
+
+@media (min-width: 1280px) {
+    .category-menu__mega-right {
+        display: block;
+        width: 320px;
+        flex-shrink: 0;
+    }
+}
+
+/* Brands grids in mega menu */
+.category-menu__brands {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.category-menu__brand-item {
+    background-color: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-1);
+    transition: var(--transition-colors);
+}
+
+.category-menu__brand-item:hover {
+    border-color: var(--gray-300);
+    background-color: var(--gray-100);
+}
+
+/* Banners grid in mega menu */
+.category-menu__banners {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+}
+
+.category-menu__banners img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+}
+
+/* Megamenu Grid Layout */
+.category-menu__mega-grid-wrap {
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    border-top-left-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.category-menu__mega-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100%;
+}
+
+.category-menu__mega-col {
+    list-style: none;
+    padding: var(--space-6) 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-menu__mega-col:nth-child(even) {
+    background-color: var(--gray-25); /* Subtle alternate column tint */
+}
+
+.category-menu__mega-title-item {
+    margin-bottom: var(--space-2);
+}
+
+.category-menu__mega-title-link {
+    display: block;
+    font-size: var(--text-sm) !important;
+    font-weight: var(--fw-bold) !important;
+    color: var(--gray-900) !important;
+    padding: 6px var(--space-6);
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.category-menu__mega-subitem {
+    display: block;
+}
+
+.category-menu__mega-subitem--divider {
+    border-bottom: 1px solid var(--gray-100);
+    padding-bottom: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.category-menu__mega-sublink {
+    display: block;
+    font-size: var(--text-sm) !important;
+    font-weight: var(--fw-medium) !important;
+    color: var(--gray-600) !important;
+    padding: 6px var(--space-6);
+    text-decoration: none;
+    transition: var(--transition-colors);
+}
+
+.category-menu__mega-title-link:hover,
+.category-menu__mega-sublink:hover {
+    background-color: var(--gray-50);
+    color: var(--gray-900) !important;
+}

@@ -1,0 +1,100 @@
+/* =============================================================
+   Focused Checkout Header Design System Component
+   ============================================================= */
+
+.checkout-header {
+    width: 100%;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-xs);
+}
+
+.checkout-header__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--space-4) var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+@media (max-width: 767px) {
+    .checkout-header__inner {
+        padding: var(--space-3) var(--space-4);
+        height: auto;
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+}
+
+.checkout-header__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Stepper Component */
+.checkout-header__stepper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+@media (min-width: 768px) {
+    .checkout-header__stepper {
+        gap: var(--space-4);
+    }
+}
+
+.checkout-header__step {
+    font-size: var(--text-xs) !important; /* Enforced 12px globally */
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.05em; /* 0.05em letter spacing */
+    color: var(--gray-450);
+    transition: color var(--duration-fast) ease;
+}
+
+.checkout-header__step--active {
+    color: var(--blue) !important; /* Brand primary blue */
+    border-bottom: 2px solid var(--blue) !important;
+    padding-bottom: 4px;
+    font-weight: var(--fw-bold);
+}
+
+.checkout-header__divider {
+    width: 40px;
+    height: 1px;
+    border-bottom: 1px dashed var(--gray-300);
+}
+
+@media (min-width: 768px) {
+    .checkout-header__divider {
+        width: 80px;
+    }
+}
+
+/* Security Badge */
+.checkout-header__security {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--success-600);
+    font-weight: var(--fw-bold);
+    font-size: var(--text-xs);
+    letter-spacing: 0.05em;
+}
+
+.checkout-header__security-icon {
+    font-size: var(--text-lg);
+    stroke-width: 2.5px;
+}
+
+@media (max-width: 767px) {
+    .checkout-header__security {
+        display: none; /* Keep mobile view compact */
+    }
+}

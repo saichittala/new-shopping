@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        label { font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 8px; margin: 5px 0; }
+        button { background: green; color: white; padding: 10px; border: none; cursor: pointer; }
+    </style>
+    <script>
+        function calculateTotal() {
+            let price = parseFloat(document.getElementById('price').value) || 0;
+            let gstRate = 18;
+            let gstAmount = (price * gstRate) / 100;
+            let total = price + gstAmount;
+            document.getElementById('total').value = total.toFixed(2);
+        }
+
+        function calculatePVR() {
+            let price = parseFloat(document.getElementById('price').value) || 0;
+            let pv = parseFloat(document.getElementById('pv').value) || 0;
+            if (pv > 0) {
+                let pvr = price / pv;
+                document.getElementById('pvr').value = pvr.toFixed(2);
+                let productVolumePrice = pv * pvr;
+                document.getElementById('productVolumePrice').value = productVolumePrice.toFixed(2);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Product</h2>
+        <form>
+            <label>Select Category</label>
+            <select id="categories">
+                <option>Bone Health</option>
+                <option>Meal Replacements & Functional Nutrition</option>
+                <option>Women's Health & Wellness</option>
+                <option>Men's Health & Performance</option>
+                <option>Sports Nutrition & Performance</option>
+                <option>Weight Management & Metabolism Boosters</option>
+                <option>Heart & Diabetes Care</option>
+                <option>Anti-Aging & Longevity</option>
+                <option>Kids’ Nutrition & Growth Support</option>
+                <option>Personal Care & Wellness</option>
+            </select>
+
+            <label>Product Name</label>
+            <select id="products">
+                <option>Gut Balance</option>
+                <option>Fiber Plus</option>
+                <option>Liver Shield</option>
+                <option>Daily Vita +</option>
+                <option>Energy Drink</option>
+                <option>Fem Balance</option>
+                <option>Joint Flex</option>
+                <option>Men Vitality</option>
+                <option>Heart Harmony</option>
+                <option>Fat Out</option>
+                <option>Nutri Max</option>
+                <option>Grow Well Junior</option>
+            </select>
+
+            <label>Product Image</label>
+            <input type="file">
+
+            <label>Short Description</label>
+            <textarea></textarea>
+
+            <label>Product Overview</label>
+            <textarea></textarea>
+
+            <label>Features & Benefits</label>
+            <textarea></textarea>
+
+            <label>What's in it?</label>
+            <textarea></textarea>
+
+            <label>How to Use</label>
+            <textarea></textarea>
+
+            <label>Price (Excl GST)</label>
+            <input type="number" id="price" oninput="calculateTotal(); calculatePVR();">
+
+            <label>GST Rate (%)</label>
+            <input type="text" value="18%" disabled>
+
+            <label>Total Amount (Incl GST)</label>
+            <input type="text" id="total" disabled>
+
+            <label>PV (Purchase Volume)</label>
+            <input type="number" id="pv" oninput="calculatePVR()">
+
+            <label>PVR (Purchase Volume Price)</label>
+            <input type="number" id="pvr" disabled>
+
+            <label>Product Volume Price</label>
+            <input type="text" id="productVolumePrice" disabled>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

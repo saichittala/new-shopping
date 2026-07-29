@@ -1,0 +1,188 @@
+@import "./variables.css";
+@import "./compiled.css";
+@import "./reset.css";
+@import "./typography.css";
+@import "./layout.css";
+@import "./utilities.css";
+@import "./components/buttons.css";
+@import "./components/forms.css";
+@import "./components/cards.css";
+@import "./components/dropdowns.css";
+@import "./components/header.css";
+@import "./components/footer.css";
+@import "./components/subscription.css";
+@import "./components/product-card.css";
+@import "./components/product-grid.css";
+@import "./components/product-popup.css";
+@import "./components/product-detail.css";
+@import "./components/product-attrs.css";
+@import "./components/cart.css";
+@import "./components/checkout-header.css";
+@import "./components/checkout.css";
+@import "./components/order.css";
+@import "./components/category-menu.css";
+@import "./components/category-card-list.css";
+@import "./components/wishlist.css";
+@import "./components/toast.css";
+@import "./components/homepage.css";
+
+/* Prada Browse by Category Styles */
+.prada-categories-container {
+  margin-bottom: var(--space-8);
+}
+
+.prada-categories-header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.prada-categories-header h2 {
+  font-family: var(--font);
+  font-size: var(--text-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.prada-categories-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 2px;
+  background-color: var(--white);
+  padding-bottom: var(--space-2);
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.prada-categories-grid::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+/* On Desktop viewports, render as a clean 8-column grid */
+@media (min-width: 768px) {
+  .prada-categories-grid {
+    display: grid !important;
+    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+    gap: 2px !important;
+    padding-bottom: 0 !important;
+    overflow-x: visible !important;
+  }
+}
+
+.prada-category-item {
+  width: 110px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .prada-category-item {
+    width: 130px;
+  }
+}
+
+@media (min-width: 768px) {
+  .prada-category-item {
+    width: auto !important;
+  }
+}
+
+.prada-category-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-spring), background-color var(--duration-fast) ease;
+  text-decoration: none;
+}
+
+.prada-category-card:hover .prada-category-image-wrap {
+  background-color: var(--gray-200);
+}
+
+.prada-category-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--gray-100);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background-color var(--duration-fast) ease;
+}
+
+@media (min-width: 768px) {
+  .prada-category-image-wrap {
+    padding: 0;
+  }
+}
+
+.prada-category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-smooth);
+}
+
+.prada-category-card:hover .prada-category-image {
+  transform: scale(1.05);
+}
+
+.prada-category-label-wrap {
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-1);
+  padding-left: var(--space-1);
+  padding-right: var(--space-1);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+}
+
+.prada-category-label {
+  font-family: var(--font);
+  font-size: var(--text-xs);
+  font-weight: var(--fw-medium);
+  color: var(--gray-900);
+  text-transform: none;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: normal;
+}
+
+.prada-category-card:hover .prada-category-label {
+  text-decoration: underline;
+}
+
+/* Prada Products Grid Styles (1px horizontal/vertical gap) */
+.prada-products-grid {
+  gap: 1px !important;
+  background-color: var(--gray-200) !important;
+  border: 1px solid var(--gray-200);
+}
+
+.prada-products-grid .product-card {
+  border-radius: 0 !important;
+}
+
+.prada-products-grid .product-card--gridModernWide {
+  padding-bottom: var(--space-4) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.prada-products-grid .product-card--gridModernWide:hover {
+  box-shadow: none !important;
+}

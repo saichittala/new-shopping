@@ -1,0 +1,31 @@
+import Layout from "@components/layout/layout";
+import PageHeader from "@components/ui/page-header";
+import OrderInformation from "@components/order/order-information";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticProps } from "next";
+
+export default function Order() {
+  return (
+    <>
+      <PageHeader pageHeader="text-page-order" />
+      <div className="order-page">
+        <OrderInformation />
+      </div>
+    </>
+  );
+}
+
+Order.Layout = Layout;
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, [
+        "common",
+        "forms",
+        "menu",
+        "footer",
+      ])),
+    },
+  };
+};

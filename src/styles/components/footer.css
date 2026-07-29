@@ -1,0 +1,185 @@
+/* =============================================================
+   Footer Component — Semantic Custom CSS
+   ============================================================= */
+
+/* Root footer element */
+.site-footer {
+    border-bottom: 4px solid var(--gray-900);
+    margin-top: var(--space-10);
+    padding-top: var(--space-3);
+}
+
+@media (min-width: 768px) {
+    .site-footer {
+        margin-top: 44px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .site-footer {
+        margin-top: var(--space-16);
+        padding-top: 0;
+    }
+}
+
+@media (min-width: 1536px) {
+    .site-footer {
+        padding-top: var(--space-2);
+    }
+}
+
+/* Widgets grid */
+.footer__widgets {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    padding-bottom: var(--space-10);
+}
+
+@media (min-width: 768px) {
+    .footer__widgets {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-10);
+        padding-bottom: var(--space-16);
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer__widgets {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-5);
+        padding-bottom: var(--space-16);
+    }
+}
+
+@media (min-width: 1280px) {
+    .footer__widgets {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Copyright bar */
+.footer__copyright {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-16);
+    margin-bottom: var(--space-2);
+    border-top: 1px solid var(--gray-300);
+}
+
+@media (min-width: 640px) {
+    .footer__copyright {
+        padding-bottom: var(--space-20);
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .footer__copyright {
+        padding-bottom: var(--space-5);
+    }
+}
+
+.footer__copyright-row {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer__copyright-row {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.footer__copyright-row--centered {
+    align-items: center;
+}
+
+/* Copyright text */
+.footer__copyright-text {
+    font-size: var(--text-xs);
+    color: var(--gray-600);
+    line-height: 1.5;
+}
+
+@media (min-width: 1024px) {
+    .footer__copyright-text {
+        font-size: var(--text-sm);
+    }
+}
+
+.footer__copyright-text--flush {
+    padding: 0;
+    margin: 0;
+}
+
+.footer__copyright-link {
+    font-weight: var(--fw-semibold);
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.footer__copyright-link:hover {
+    color: var(--gray-500);
+}
+
+/* Payment icons list */
+.footer__payment-list {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-1);
+    gap: var(--space-4);
+    list-style: none;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .footer__payment-list {
+        display: flex;
+        margin: 0;
+        gap: var(--space-5);
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer__payment-list {
+        gap: var(--space-6);
+    }
+}
+
+.footer__payment-item {
+    margin-bottom: var(--space-2);
+    transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+@media (min-width: 768px) {
+    .footer__payment-item {
+        margin-bottom: 0;
+    }
+}
+
+.footer__payment-item:hover {
+    opacity: 0.8;
+}
+
+/* Scroll to top link */
+.footer__scroll-top {
+    font-size: var(--text-sm);
+    font-weight: var(--fw-semibold);
+    line-height: 19px;
+    color: var(--gray-900);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.footer__scroll-top:hover {
+    color: var(--gray-600);
+}

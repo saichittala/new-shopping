@@ -1,0 +1,17 @@
+/* Core spacing containers and bounds */
+.container-ds {
+    max-width: var(--container-xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+}
+
+.sidebar-ds {
+    width: var(--sidebar-width);
+    transition: var(--transition-base);
+}
+
+.sidebar-ds.collapsed {
+    width: var(--sidebar-collapsed);
+}

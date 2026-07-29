@@ -1,0 +1,288 @@
+/* =============================================================
+   Untitled UI Button Design System Component
+   ============================================================= */
+
+.btn-ds {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font) !important;
+    font-weight: var(--fw-semibold) !important;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: var(--transition-colors) !important;
+    user-select: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    cursor: pointer !important;
+}
+
+/* Sizes conforming to Untitled UI Figma Specifications */
+.btn-size-xs,
+.btn-size-small {
+    height: 36px !important;
+    font-size: 14px !important;
+    padding: 0 14px !important;
+    gap: 6px !important;
+    border-radius: var(--radius-sm) !important;
+}
+.btn-size-xs.btn-icon-only,
+.btn-size-small.btn-icon-only {
+    width: 36px !important;
+    padding: 0 !important;
+}
+
+.btn-size-sm {
+    height: 40px !important;
+    font-size: 14px !important;
+    padding: 0 16px !important;
+    gap: 6px !important;
+    border-radius: var(--radius-sm) !important;
+}
+.btn-size-sm.btn-icon-only {
+    width: 40px !important;
+    padding: 0 !important;
+}
+
+.btn-size-md,
+.btn-size-medium {
+    height: 44px !important;
+    font-size: 14px !important;
+    padding: 0 18px !important;
+    gap: 8px !important;
+    border-radius: var(--radius-md) !important;
+}
+.btn-size-md.btn-icon-only,
+.btn-size-medium.btn-icon-only {
+    width: 44px !important;
+    padding: 0 !important;
+}
+
+.btn-size-lg {
+    height: 48px !important;
+    font-size: 16px !important;
+    padding: 0 20px !important;
+    gap: 8px !important;
+    border-radius: var(--radius-md) !important;
+}
+.btn-size-lg.btn-icon-only {
+    width: 48px !important;
+    padding: 0 !important;
+}
+
+.btn-size-xl,
+.btn-size-large {
+    height: 60px !important;
+    font-size: 18px !important;
+    padding: 0 28px !important;
+    gap: 10px !important;
+    border-radius: var(--radius-lg) !important;
+}
+.btn-size-xl.btn-icon-only,
+.btn-size-large.btn-icon-only {
+    width: 60px !important;
+    padding: 0 !important;
+}
+
+/* Rounded modifier */
+.btn-rounded {
+    border-radius: var(--radius-pill) !important;
+}
+
+/* Width modifier */
+.btn-full-width {
+    width: 100% !important;
+    display: flex !important;
+}
+
+/* Variants (Primary, Secondary, Outline/Secondary Gray, Ghost, Destructive) */
+
+/* Primary: Solid Brand Blue */
+.btn-variant-primary {
+    background-color: var(--blue) !important;
+    color: var(--white) !important;
+    border-color: transparent !important;
+    box-shadow: var(--shadow-xs) !important;
+}
+.btn-variant-primary:hover {
+    background-color: var(--blue2) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+.btn-variant-primary:active {
+    background-color: oklch(46% 0.18 258) !important;
+}
+
+/* Secondary: Solid Brand Black */
+.btn-variant-secondary {
+    background-color: var(--black) !important;
+    color: var(--white) !important;
+    border-color: transparent !important;
+    box-shadow: var(--shadow-xs) !important;
+}
+.btn-variant-secondary:hover {
+    background-color: var(--gray-800) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+.btn-variant-secondary:active {
+    background-color: var(--gray-900) !important;
+}
+
+/* Outline (Secondary Gray): White fill, Gray border, dark text */
+.btn-variant-outline {
+    background-color: var(--white) !important;
+    color: var(--gray-700) !important;
+    border-color: var(--gray-200) !important;
+    box-shadow: var(--shadow-xs) !important;
+}
+.btn-variant-outline:hover {
+    background-color: var(--gray-50) !important;
+    color: var(--gray-800) !important;
+    border-color: var(--gray-300) !important;
+}
+.btn-variant-outline:active {
+    background-color: var(--gray-100) !important;
+}
+
+/* Outlines button svg icons styling */
+.btn-variant-outline svg {
+    color: var(--gray-700) !important;
+}
+
+/* Tertiary / Ghost (Tertiary Gray): Transparent, no border, dark text */
+.btn-variant-ghost,
+.btn-variant-tertiary {
+    background-color: transparent !important;
+    color: var(--gray-700) !important;
+    border-color: transparent !important;
+}
+.btn-variant-ghost:hover,
+.btn-variant-tertiary:hover {
+    background-color: var(--gray-50) !important;
+    color: var(--gray-800) !important;
+}
+.btn-variant-ghost:active,
+.btn-variant-tertiary:active {
+    background-color: var(--gray-100) !important;
+}
+
+/* Primary Destructive: Solid Red */
+.btn-variant-primary-destructive,
+.btn-variant-destructive {
+    background-color: var(--color-danger) !important;
+    color: var(--white) !important;
+    border-color: transparent !important;
+    box-shadow: var(--shadow-xs) !important;
+}
+.btn-variant-primary-destructive:hover,
+.btn-variant-destructive:hover {
+    background-color: var(--color-danger-hover) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+.btn-variant-primary-destructive:active,
+.btn-variant-destructive:active {
+    background-color: oklch(50% 0.2 29) !important;
+}
+
+/* Secondary Destructive: White fill, Red border, Red text */
+.btn-variant-secondary-destructive {
+    background-color: var(--white) !important;
+    color: var(--color-danger) !important;
+    border-color: var(--color-danger) !important;
+    box-shadow: var(--shadow-xs) !important;
+}
+.btn-variant-secondary-destructive:hover {
+    background-color: var(--error-50) !important;
+    color: var(--color-danger-hover) !important;
+    border-color: var(--color-danger-hover) !important;
+}
+.btn-variant-secondary-destructive:active {
+    background-color: var(--error-100) !important;
+}
+
+/* Tertiary Destructive: Transparent, Red text */
+.btn-variant-tertiary-destructive {
+    background-color: transparent !important;
+    color: var(--color-danger) !important;
+    border-color: transparent !important;
+}
+.btn-variant-tertiary-destructive:hover {
+    background-color: var(--error-50) !important;
+    color: var(--color-danger-hover) !important;
+}
+.btn-variant-tertiary-destructive:active {
+    background-color: var(--error-100) !important;
+}
+
+/* Link Gray: No border, underline on hover, gray text */
+.btn-variant-link-gray {
+    background-color: transparent !important;
+    color: var(--gray-600) !important;
+    border-color: transparent !important;
+    padding: 0 !important;
+    height: auto !important;
+}
+.btn-variant-link-gray:hover {
+    text-decoration: underline !important;
+    color: var(--gray-800) !important;
+}
+
+/* Link Color: No border, underline on hover, brand blue text */
+.btn-variant-link-color {
+    background-color: transparent !important;
+    color: var(--blue) !important;
+    border-color: transparent !important;
+    padding: 0 !important;
+    height: auto !important;
+}
+.btn-variant-link-color:hover {
+    text-decoration: underline !important;
+    color: var(--blue2) !important;
+}
+
+/* Link Destructive: No border, underline on hover, red text */
+.btn-variant-link-destructive {
+    background-color: transparent !important;
+    color: var(--color-danger) !important;
+    border-color: transparent !important;
+    padding: 0 !important;
+    height: auto !important;
+}
+.btn-variant-link-destructive:hover {
+    text-decoration: underline !important;
+    color: var(--color-danger-hover) !important;
+}
+
+/* Icon (Toolbar Minimal Button) */
+.btn-variant-icon {
+    background-color: transparent !important;
+    color: var(--gray-600) !important;
+    border-color: transparent !important;
+}
+.btn-variant-icon:hover {
+    background-color: var(--gray-50) !important;
+    color: var(--gray-800) !important;
+}
+.btn-variant-icon:active {
+    background-color: var(--gray-100) !important;
+}
+
+/* Disabled and Loading states */
+.btn-ds:disabled,
+.btn-ds.btn-disabled {
+    opacity: var(--opacity-disabled) !important;
+    background-color: var(--gray-100) !important;
+    color: var(--gray-400) !important;
+    border-color: var(--gray-200) !important;
+    box-shadow: none !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+.btn-ds.btn-variant-ghost:disabled {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.btn-ds.btn-loading {
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}

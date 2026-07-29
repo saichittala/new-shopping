@@ -1,0 +1,166 @@
+/* Accordion */
+.accordion.rc-collapse {
+  background-color: transparent;
+  border: 0;
+}
+
+.accordion.rc-collapse>.rc-collapse-item+.rc-collapse-item {
+  margin-top: 10px;
+}
+
+.accordion.rc-collapse>.rc-collapse-item {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: var(--color-surface);
+  border: 0;
+  border-radius: var(--radius-sm);
+}
+
+.accordion.rc-collapse>.rc-collapse-item>.rc-collapse-header {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.accordion.rc-collapse>.rc-collapse-item>.rc-collapse-header h3 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  transition: all 0.2s ease-in;
+  letter-spacing: 0.015em;
+}
+
+.accordion.rc-collapse>.rc-collapse-item>.rc-collapse-header:hover h3 {
+  color: var(--color-text-primary);
+}
+
+.accordion.rc-collapse>.rc-collapse-item>.rc-collapse-content {
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+  color: var(--color-text-secondary);
+}
+
+[dir="ltr"] .accordion.rc-collapse>.rc-collapse-item>.rc-collapse-content {
+  padding-left: 0;
+  padding-right: 8rem;
+}
+
+[dir="rtl"] .accordion.rc-collapse>.rc-collapse-item>.rc-collapse-content {
+  padding-right: 0;
+  padding-left: 8rem;
+}
+
+.accordion.rc-collapse>.rc-collapse-item>.rc-collapse-content>.rc-collapse-content-box {
+  padding-bottom: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--text-sm);
+  line-height: 1.5rem;
+}
+
+.react-tabs__tab--selected {
+  font-weight: var(--fw-semibold) !important;
+  border-radius: var(--radius-sm) !important;
+  background-color: var(--color-surface) !important;
+}
+
+.react-stars {
+  gap: 0.125rem;
+}
+
+/* Toastify */
+.Toastify .fancy-progress-bar {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.Toastify .Toastify__toast {
+  background-color: #000;
+}
+
+.Toastify .Toastify__toast .Toastify__toast-body,
+.Toastify .Toastify__toast .Toastify__close-button {
+  color: #ffffff;
+}
+
+.Toastify .Toastify__toast .Toastify__close-button {
+  opacity: 0.7;
+}
+
+.Toastify .Toastify__toast .Toastify__close-button:hover {
+  opacity: 1;
+}
+
+@media (max-width: 480px) {
+
+  .Toastify .Toastify__toast-container--top-left,
+  .Toastify .Toastify__toast-container--top-center,
+  .Toastify .Toastify__toast-container--top-right {
+    top: 66px;
+  }
+}
+
+/* Drawer */
+.rc-drawer .rc-drawer-content-wrapper {
+  width: 100%;
+  margin: 12px;
+}
+
+@media (min-width: 480px) {
+  .rc-drawer .rc-drawer-content-wrapper {
+    width: 450px !important;
+  }
+}
+
+.drawer-search {
+  transform: translate(-50%, 50px);
+  z-index: var(--z-modal);
+}
+
+.drawer-search.open {
+  position: fixed;
+  top: 0;
+  visibility: visible;
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, 0);
+  z-index: var(--z-modal);
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: calc(var(--z-modal) - 1);
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  transition: 0.35s ease-in-out;
+}
+
+[dir="ltr"] .overlay {
+  left: 0;
+}
+
+[dir="rtl"] .overlay {
+  right: 0;
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ── Ken Burns slider zoom effect ── */
+.carouselItem img {
+  transition: transform 7s cubic-bezier(0.15, 1, 0.3, 1) !important;
+  transform: scale(1) !important;
+}
+
+.carouselItem.swiper-slide-active img {
+  transform: scale(1.05) !important;
+}

@@ -1,0 +1,241 @@
+/* ================================================================
+   Product Popup — Semantic Custom CSS
+   ================================================================ */
+
+/* Outer shell */
+.product-popup {
+    border-radius: var(--radius-lg);
+    background-color: var(--white);
+    overflow: hidden;
+}
+
+/* Main flex layout */
+.product-popup__layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .product-popup__layout {
+        width: 650px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-popup__layout {
+        flex-direction: row;
+        width: 960px;
+    }
+}
+
+/* Image panel */
+.product-popup__image-panel {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--gray-100);
+    overflow: hidden;
+    max-height: 430px;
+}
+
+@media (min-width: 1024px) {
+    .product-popup__image-panel {
+        width: 430px;
+        max-height: none;
+    }
+}
+
+.product-popup__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content panel */
+.product-popup__content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-5);
+    width: 100%;
+    position: relative; /* Enforce relative context for absolute close button positioning */
+}
+
+@media (min-width: 768px) {
+    .product-popup__content {
+        padding: var(--space-8);
+    }
+}
+
+/* Inside Close Button styled in Untitled UI style */
+.product-popup__close-btn {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 100% !important;
+    background-color: var(--white);
+    color: var(--gray-500);
+    border: 1px solid var(--gray-200);
+    cursor: pointer;
+    box-shadow: var(--shadow-xs);
+    transition: var(--transition-colors);
+}
+
+.product-popup__close-btn:hover {
+    background-color: var(--gray-50);
+    color: var(--gray-900);
+    border-color: var(--gray-300);
+}
+
+.product-popup__close-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Hide external modal close button when product popup is active */
+.modal-root:has(.product-popup) > div > div > button {
+    display: none !important;
+}
+
+/* Header section styling for visual hierarchy */
+.product-popup__header {
+    padding-bottom: var(--space-6); /* Luxurious spacing */
+    border-bottom: 1px solid var(--gray-100); /* Extra light border */
+}
+
+/* Name link */
+.product-popup__name-link {
+    display: block;
+    margin-bottom: var(--space-2);
+    margin-top: -6px;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .product-popup__name-link {
+        margin-bottom: 10px;
+    }
+}
+
+.product-popup__name {
+    font-size: var(--text-lg);
+    font-weight: var(--fw-semibold);
+    color: var(--gray-900);
+    line-height: 1.3;
+    transition: color var(--duration-fast) ease;
+}
+
+@media (min-width: 768px) {
+    .product-popup__name {
+        font-size: var(--text-xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-popup__name {
+        font-size: var(--text-2xl);
+    }
+}
+
+.product-popup__name:hover {
+    color: var(--gray-700);
+}
+
+/* Description styling - soft, legible, and premium spacing */
+.product-popup__description {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    color: var(--gray-500);
+    margin-top: var(--space-2);
+}
+
+@media (min-width: 768px) {
+    .product-popup__description {
+        font-size: var(--text-sm);
+        line-height: 1.6;
+        margin-top: var(--space-3);
+    }
+}
+
+/* Price row */
+.product-popup__price-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+}
+
+.product-popup__price {
+    font-size: var(--text-md);
+    font-weight: var(--fw-semibold);
+    color: var(--gray-900);
+}
+
+@media (min-width: 768px) {
+    .product-popup__price {
+        font-size: var(--text-xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-popup__price {
+        font-size: var(--text-2xl);
+    }
+}
+
+.product-popup__original-price {
+    font-size: var(--text-md);
+    font-weight: var(--fw-regular);
+    color: var(--gray-400);
+    text-decoration: line-through;
+    margin-top: -2px;
+}
+
+@media (min-width: 1024px) {
+    .product-popup__original-price {
+        font-size: var(--text-xl);
+        margin-top: 0;
+    }
+}
+
+/* Actions section */
+.product-popup__actions {
+    padding-top: var(--space-2);
+}
+
+@media (min-width: 768px) {
+    .product-popup__actions {
+        padding-top: var(--space-4);
+    }
+}
+
+/* Counter + Add to cart row */
+.product-popup__cart-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+@media (min-width: 640px) {
+    .product-popup__cart-row {
+        gap: var(--space-4);
+    }
+}
+
+/* View cart / View details buttons */
+.product-popup__secondary-btn {
+    width: 100%;
+    margin-bottom: var(--space-4);
+}

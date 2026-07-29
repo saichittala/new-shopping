@@ -1,0 +1,758 @@
+/* ================================================================
+   Homepage — Semantic Custom CSS
+   World-class layout with perfect spacing from design system tokens
+   ================================================================ */
+
+/* ── Page Root ── */
+.home-page {
+    /* Inherit from design system */
+}
+
+/* ================================================================
+   HERO SLIDER SECTION
+   ================================================================ */
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    margin-bottom: var(--space-20);
+}
+
+@media (min-width: 768px) {
+    .hero-slider {
+        margin-bottom: var(--space-24);
+    }
+}
+
+@media (min-width: 1280px) {
+    .hero-slider {
+        margin-bottom: 96px;
+    }
+}
+
+/* Full-width variant: fills the viewport edge-to-edge */
+.hero-slider--full-width {
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-slider__inner {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* ================================================================
+   CATEGORIES SECTION
+   ================================================================ */
+
+.categories-section {
+    padding-bottom: var(--space-20);
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .categories-section {
+        padding-bottom: var(--space-24);
+    }
+}
+
+@media (min-width: 1280px) {
+    .categories-section {
+        padding-bottom: 96px;
+    }
+}
+
+/* ================================================================
+   NEW ARRIVALS FEED
+   Full-width, edge-to-edge product grid
+   ================================================================ */
+
+.new-arrivals-feed {
+    width: 100%;
+    margin-bottom: var(--space-20);
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+}
+
+@media (min-width: 640px) {
+    .new-arrivals-feed {
+        padding-left: var(--space-6);
+        padding-right: var(--space-6);
+    }
+}
+
+@media (min-width: 1024px) {
+    .new-arrivals-feed {
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+    }
+}
+
+@media (min-width: 768px) {
+    .new-arrivals-feed {
+        margin-bottom: var(--space-24);
+    }
+}
+
+@media (min-width: 1280px) {
+    .new-arrivals-feed {
+        padding-left: var(--space-12);
+        padding-right: var(--space-12);
+        margin-bottom: 96px;
+    }
+}
+
+/* Section heading row — flex, space-between, centered vertically */
+.section-heading-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -8px;
+    padding-bottom: 2px;
+    margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .section-heading-row {
+        margin-bottom: var(--space-5);
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-heading-row {
+        margin-bottom: var(--space-6);
+    }
+}
+
+/* Section title text */
+.section-title {
+    font-family: var(--font);
+    font-size: var(--text-lg);
+    font-weight: var(--fw-semibold);
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: var(--text-xl);
+    }
+}
+
+@media (min-width: 1280px) {
+    .section-title {
+        font-size: var(--text-2xl);
+    }
+}
+
+/* See-all link */
+.section-see-all {
+    font-family: var(--font);
+    font-size: var(--text-xs);
+    font-weight: var(--fw-medium);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    opacity: var(--opacity-muted);
+    transition: opacity var(--duration-fast) ease;
+    margin-top: 2px;
+}
+
+.section-see-all:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+@media (min-width: 1024px) {
+    .section-see-all {
+        font-size: var(--text-sm);
+    }
+}
+
+@media (min-width: 1280px) {
+    .section-see-all {
+        font-size: var(--text-md);
+    }
+}
+
+/* ================================================================
+   TAB NAVIGATION — Pill / Outline button style
+   Active tab = brand 10 bg, brand color text and border.
+   ================================================================ */
+
+.tab-ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 12px;
+    /* 12px gap */
+    padding: 0;
+    margin: 0 0 var(--space-6) 0;
+    border-bottom: none;
+}
+
+/* Base tab item — outline ghost button (matching Account button) */
+.tab-li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: var(--text-sm);
+    /* 14px text size */
+    font-weight: var(--fw-medium);
+    color: var(--gray-800);
+    cursor: pointer;
+    padding: 12px 16px;
+    /* reduced padding for perfect fit content */
+    border: 1px solid var(--gray-300);
+    /* outline border */
+    border-radius: 99px;
+    /* pill shape */
+    box-shadow: var(--shadow-xs);
+    /* subtle button shadow */
+    background-color: var(--white);
+    white-space: nowrap;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color var(--duration-fast) ease,
+        border-color var(--duration-fast) ease,
+        background-color var(--duration-fast) ease;
+    list-style: none;
+    line-height: 1.2;
+    margin: 0;
+    height: fit-content;
+    /* remove any margins */
+}
+
+.tab-li p {
+    margin: 0;
+    /* remove default paragraph margins */
+}
+
+.tab-li:hover {
+    color: var(--primary-600);
+    border-color: var(--primary-300);
+    background-color: var(--primary-50);
+}
+
+/* Active / selected tab — brand outline border, brand color text, brand 10 bg */
+.tab-li-selected {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: var(--text-sm);
+    /* 14px text size */
+    font-weight: var(--fw-semibold);
+    color: var(--primary-600);
+    /* brand color text */
+    cursor: pointer;
+    padding: 12px 16px;
+    /* reduced padding for perfect fit content */
+    border: 1px solid var(--primary-600);
+    /* brand color border */
+    border-radius: 99px;
+    /* pill shape */
+    box-shadow: var(--shadow-xs);
+    /* subtle button shadow */
+    background-color: var(--primary-50);
+    /* brand 10 bg */
+    white-space: nowrap;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    list-style: none;
+    line-height: 1.2;
+    margin: 0;
+    height: fit-content;
+    /* remove any margins */
+}
+
+.tab-li-selected p {
+    margin: 0;
+    /* remove default paragraph margins */
+}
+
+/* ================================================================
+   PRODUCTS GRID — Clean white layout, no divider borders
+   Cards have no borders at rest; on hover a border + shadow appears
+   ================================================================ */
+
+.products-grid {
+    display: grid;
+    background-color: var(--white);
+}
+
+/* Grid variant — general collection grid */
+.products-grid--grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    background-color: var(--white);
+}
+
+@media (min-width: 640px) {
+    .products-grid--grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-grid--grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1536px) {
+    .products-grid--grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Grid Modern Wide — New Arrivals */
+.products-grid--gridModernWide {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    background-color: var(--white);
+}
+
+@media (min-width: 640px) {
+    .products-grid--gridModernWide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .products-grid--gridModernWide {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .products-grid--gridModernWide {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1536px) {
+    .products-grid--gridModernWide {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Grid Modern — Trending */
+.products-grid--gridModern {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    background-color: var(--white);
+}
+
+@media (min-width: 768px) {
+    .products-grid--gridModern {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-grid--gridModern {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1536px) {
+    .products-grid--gridModern {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* ── Card baseline: clean white, no borders, no radius ── */
+.products-grid--gridModernWide .product-card,
+.products-grid--gridModern .product-card,
+.products-grid--gridTrendy .product-card,
+.products-grid--grid .product-card {
+    background-color: var(--white);
+    border-radius: 0;
+    border: none;
+    position: relative;
+    z-index: 0;
+    transition: box-shadow var(--duration-fast) ease;
+}
+
+/* ── Hover: soft shadow floats card above others ── */
+.products-grid--gridModernWide .product-card:hover,
+.products-grid--gridModern .product-card:hover,
+.products-grid--gridTrendy .product-card:hover,
+.products-grid--grid .product-card:hover {
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(16, 24, 40, 0.10),
+        0 1px 6px rgba(16, 24, 40, 0.06);
+}
+
+/* ================================================================
+   MAIN CONTAINER SECTIONS (below new arrivals)
+   ================================================================ */
+
+/* Trending products section — mirrors new-arrivals-feed spacing */
+.trending-feed {
+    width: 100%;
+    margin-bottom: var(--space-20);
+}
+
+@media (min-width: 768px) {
+    .trending-feed {
+        margin-bottom: var(--space-24);
+    }
+}
+
+@media (min-width: 1280px) {
+    .trending-feed {
+        margin-bottom: 96px;
+    }
+}
+
+.home-section {
+    margin-bottom: var(--space-20);
+}
+
+@media (min-width: 768px) {
+    .home-section {
+        margin-bottom: var(--space-24);
+    }
+}
+
+@media (min-width: 1280px) {
+    .home-section {
+        margin-bottom: 96px;
+    }
+}
+
+/* ================================================================
+   BRAND TIMER BLOCK
+   ================================================================ */
+
+.brand-timer-block {
+    margin-bottom: var(--space-20);
+}
+
+@media (min-width: 768px) {
+    .brand-timer-block {
+        margin-bottom: var(--space-24);
+    }
+}
+
+@media (min-width: 1280px) {
+    .brand-timer-block {
+        margin-bottom: 96px;
+    }
+}
+
+/* ================================================================
+   FEATURED PRODUCTS SECTION
+   ================================================================ */
+
+.featured-products {
+    margin-bottom: var(--space-20);
+}
+
+@media (min-width: 768px) {
+    .featured-products {
+        margin-bottom: var(--space-24);
+    }
+}
+
+@media (min-width: 1280px) {
+    .featured-products {
+        margin-bottom: 96px;
+    }
+}
+
+/* ================================================================
+   BANNER CARD
+   ================================================================ */
+
+.banner-card {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: var(--space-20);
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .banner-card {
+        margin-bottom: var(--space-24);
+    }
+}
+
+@media (min-width: 1280px) {
+    .banner-card {
+        margin-bottom: 96px;
+    }
+}
+
+.banner-card-wrap {
+    width: 100%;
+    max-width: 100%;
+}
+
+.banner-card__link {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    /* Shine effect on hover */
+}
+
+.banner-card__link:hover .banner-card__shine {
+    animation: bannerShine 0.6s ease-in-out forwards;
+}
+
+.banner-card__image {
+    background-color: var(--gray-300);
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+@keyframes bannerShine {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+/* ================================================================
+   COLLECTION BLOCK
+   ================================================================ */
+
+.collection-block {
+    margin-bottom: var(--space-20);
+    padding-top: 0;
+}
+
+@media (min-width: 768px) {
+    .collection-block {
+        margin-bottom: var(--space-24);
+    }
+}
+
+@media (min-width: 1024px) {
+    .collection-block {
+        padding-top: var(--space-1);
+    }
+}
+
+@media (min-width: 1280px) {
+    .collection-block {
+        padding-top: 0;
+        margin-bottom: 96px;
+    }
+}
+
+/* ================================================================
+   RECENT PRODUCT FEED
+   ================================================================ */
+
+.recent-products {
+    margin-bottom: var(--space-20);
+}
+
+@media (min-width: 768px) {
+    .recent-products {
+        margin-bottom: var(--space-24);
+    }
+}
+
+@media (min-width: 1280px) {
+    .recent-products {
+        margin-bottom: 96px;
+    }
+}
+
+/* ================================================================
+   CONTAINER UTILITY (home sections)
+   ================================================================ */
+
+.home-container {
+    width: 100%;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+}
+
+@media (min-width: 640px) {
+    .home-container {
+        padding-left: var(--space-6);
+        padding-right: var(--space-6);
+    }
+}
+
+@media (min-width: 1024px) {
+    .home-container {
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+    }
+}
+
+@media (min-width: 1280px) {
+    .home-container {
+        padding-left: var(--space-12);
+        padding-right: var(--space-12);
+    }
+}
+
+@media (min-width: 1920px) {
+    .home-container {
+        padding-left: var(--space-16);
+        padding-right: var(--space-16);
+    }
+}
+
+/* ================================================================
+   PRODUCTS BLOCK — default spacing
+   ================================================================ */
+
+.products-block {
+    margin-bottom: var(--space-12);
+}
+
+@media (min-width: 768px) {
+    .products-block {
+        margin-bottom: var(--space-16);
+    }
+}
+
+@media (min-width: 1280px) {
+    .products-block {
+        margin-bottom: var(--space-20);
+    }
+}
+
+/* ================================================================
+   PRODUCTS GRID — additional variant classes
+   ================================================================ */
+
+/* GridTrendy */
+.products-grid--gridTrendy {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background-color: var(--gray-200);
+    border: 1px solid var(--gray-200);
+}
+
+@media (min-width: 768px) {
+    .products-grid--gridTrendy {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-grid--gridTrendy {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* GridSlim */
+.products-grid--gridSlim {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    background-color: var(--white);
+}
+
+@media (min-width: 640px) {
+    .products-grid--gridSlim {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-grid--gridSlim {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1536px) {
+    .products-grid--gridSlim {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Luxury — divider style */
+.products-grid--luxury {
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+    background-color: var(--white);
+}
+
+@media (min-width: 640px) {
+    .products-grid--luxury {
+        grid-template-columns: repeat(2, 1fr);
+        border-left: 1px solid var(--gray-200);
+        border-right: 1px solid var(--gray-200);
+    }
+}
+
+@media (min-width: 768px) {
+    .products-grid--luxury {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Ancient — small gaps */
+.products-grid--ancient {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+    background-color: var(--white);
+}
+
+@media (min-width: 640px) {
+    .products-grid--ancient {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-grid--ancient {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-2);
+    }
+}
+
+@media (min-width: 1536px) {
+    .products-grid--ancient {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Each cell inside the 1px-gap grids gets white bg so the gray parent shows through as the divider */
+.products-grid--gridModernWide .product-card,
+.products-grid--gridModern .product-card,
+.products-grid--gridTrendy .product-card,
+.products-grid--grid .product-card {
+    background-color: var(--white);
+}
+
+/* ── Clear Tailwind Tab underline and bottom-line pseudos ── */
+.tab-li-selected::before,
+.tab-ul::before,
+.tab-ul::after,
+.tab-li-selected:where([dir="ltr"], [dir="ltr"] *)::before,
+.tab-li-selected:where([dir="rtl"], [dir="rtl"] *)::before,
+.tab-ul:where([dir="ltr"], [dir="ltr"] *)::before,
+.tab-ul:where([dir="rtl"], [dir="rtl"] *)::before {
+    display: none !important;
+    content: none !important;
+}

@@ -1,0 +1,33 @@
+/* Enforce Premium Cursor Interactions Everywhere */
+button,
+a,
+[role="button"],
+select {
+    cursor: pointer !important;
+}
+input,
+textarea {
+    cursor: text !important;
+}
+input:disabled,
+button:disabled,
+select:disabled,
+textarea:disabled,
+[disabled] {
+    cursor: not-allowed !important;
+}
+[draggable="true"] {
+    cursor: grab !important;
+}
+[draggable="true"]:active {
+    cursor: grabbing !important;
+}
+
+/* Accessibility Focus Outline */
+button:focus-visible,
+.btn-ds:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--blue) !important;
+    outline-offset: 2px !important;
+    box-shadow: var(--shadow-focus-blue) !important;
+}

@@ -1,0 +1,48 @@
+/* ================================================================
+   Product Grid — Semantic Custom CSS
+   ================================================================ */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2) var(--space-2);
+}
+
+@media (min-width: 640px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-3) var(--space-3);
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-grid {
+        gap: var(--space-3) var(--space-3);
+    }
+}
+
+@media (min-width: 1280px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-4) var(--space-4);
+    }
+}
+
+@media (min-width: 1536px) {
+    .product-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--space-4) var(--space-4);
+    }
+}
+
+/* Load more wrapper */
+.product-grid__load-more {
+    text-align: center;
+    padding-top: var(--space-8);
+}
+
+@media (min-width: 1280px) {
+    .product-grid__load-more {
+        padding-top: 56px;
+    }
+}

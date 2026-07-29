@@ -1,0 +1,105 @@
+/* =============================================================
+   Untitled UI Dropdown Design System Component
+   ============================================================= */
+
+.subMenu,
+.megaMenu,
+.subMenuChild,
+.dropdown-menu {
+    background-color: var(--white) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid var(--gray-200) !important;
+    padding: var(--space-2) !important; /* Untitled UI popovers have inner padding */
+    min-width: 240px;
+    z-index: var(--z-dropdown) !important;
+    overflow: hidden !important;
+}
+
+/* Dropdown list items */
+.subMenu li,
+.megaMenu li,
+.subMenuChild li,
+.dropdown-menu-item {
+    list-style: none;
+    margin: 2px 0;
+}
+
+/* Link/Action triggers inside dropdown lists */
+.subMenu a,
+.subMenu button,
+.megaMenu a,
+.megaMenu button,
+.subMenuChild a,
+.subMenuChild button,
+.dropdown-menu-item a,
+.dropdown-menu-item button {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    font-weight: var(--fw-medium) !important;
+    color: var(--gray-700) !important;
+    border-radius: var(--radius-sm) !important;
+    transition: var(--transition-colors) !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    text-align: left !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+}
+
+/* Hover, active and focus states of items */
+.subMenu a:hover,
+.subMenu button:hover,
+.megaMenu a:hover,
+.megaMenu button:hover,
+.subMenuChild a:hover,
+.subMenuChild button:hover,
+.dropdown-menu-item a:hover,
+.dropdown-menu-item button:hover {
+    background-color: var(--gray-50) !important;
+    color: var(--gray-900) !important;
+}
+
+.subMenu a:active,
+.subMenu button:active,
+.megaMenu a:active,
+.megaMenu button:active,
+.subMenuChild a:active,
+.subMenuChild button:active,
+.dropdown-menu-item a:active,
+.dropdown-menu-item button:active {
+    background-color: var(--gray-100) !important;
+    color: var(--gray-900) !important;
+}
+
+/* Icons inside dropdown lists */
+.subMenu svg,
+.megaMenu svg,
+.subMenuChild svg,
+.dropdown-menu-item svg {
+    color: var(--gray-400) !important;
+    transition: var(--transition-colors) !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.subMenu a:hover svg,
+.subMenu button:hover svg,
+.megaMenu a:hover svg,
+.megaMenu button:hover svg {
+    color: var(--gray-600) !important;
+}
+
+/* Separators inside dropdowns */
+.dropdown-separator,
+.subMenu hr,
+.megaMenu hr {
+    height: 1px;
+    background-color: var(--gray-200);
+    border: none;
+    margin: var(--space-1) 0;
+}

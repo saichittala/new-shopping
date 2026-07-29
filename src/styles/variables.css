@@ -1,0 +1,267 @@
+/*
+ * =============================================================
+ *  Untitled UI Design System — Shared CSS Variables & Tokens
+ * =============================================================
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* ── TYPOGRAPHY SCALE ── */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 20px;
+    --text-2xl: 24px;
+    --text-3xl: 30px;
+    --text-4xl: 36px;
+    --text-5xl: 48px;
+    --text-6xl: 60px;
+
+    /* ── TYPOGRAPHY — SEMANTIC ── */
+    --text-15: 15px;
+    --text-display: clamp(30px, 4vw, 36px);
+    --text-display-lg: clamp(24px, 3.5vw, 32px);
+    --text-display-xl: clamp(20px, 3vw, 30px);
+    --text-stat: clamp(26px, 3.5vw, 38px);
+    --text-hero-sub: clamp(16px, 2vw, 22px);
+
+    /* ── FONT WEIGHTS ── */
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+
+    /* ── FONT FAMILIES ── */
+    --font: -apple-system, BlinkMacSystemFont, 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --primary-font: var(--font);
+    --font-space-grotesk: var(--font);
+    --font-instrument-serif: var(--font);
+    --font-bebas-neue: var(--font);
+    --font-geist-sans: var(--font);
+    --font-inter: var(--font);
+
+    /* ── SPACING SCALE ── */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --space-24: 96px;
+    --space-32: 128px;
+
+    /* ── CONTAINER WIDTHS ── */
+    --container-sm: 640px;
+    --container-md: 800px;
+    --container-lg: 1000px;
+    --container-xl: 1200px;
+
+    /* ── Z-INDEX LAYERS ── */
+    --z-below: -1;
+    --z-base: 1;
+    --z-raised: 10;
+    --z-header: 100;
+    --z-dropdown: 500;
+    --z-modal: 1000;
+    --z-overlay: 9999;
+    --z-toast: 10000;
+    --z-cursor: 9999;
+
+    /* ── MOTION & EASING ── */
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration-instant: 80ms;
+    --duration-fast: 150ms;
+    --duration-base: 250ms;
+    --duration-slow: 400ms;
+    --duration-xslow: 500ms;
+
+    /* ── TRANSITIONS ── */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-colors: background var(--duration-fast) ease,
+        border-color var(--duration-fast) ease,
+        color var(--duration-fast) ease,
+        opacity var(--duration-fast) ease;
+    --transition-interactive: background var(--duration-fast) ease,
+        border-color var(--duration-fast) ease,
+        color var(--duration-fast) ease,
+        opacity var(--duration-fast) ease,
+        transform var(--duration-fast) var(--ease-bounce),
+        box-shadow var(--duration-fast) ease;
+
+    /* ── BORDER RADII (Untitled UI Scale) ── */
+    /* --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-pill: 999px;
+    --radius-full: 50%; */
+    --radius-xs: 0;
+    --radius-sm: 0;
+    --radius-md: 0;
+    --radius-lg: 0;
+    --radius-xl: 0;
+    --radius-2xl: 0;
+    --radius-pill: 0;
+    --radius-full: 0;
+    --radius-base: var(--radius-md);
+
+    /* ── SHADOWS (Untitled UI Soft Shadows) ── */
+    --shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.05);
+    --shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+    --shadow-md: 0 4px 8px -2px rgba(16, 24, 40, 0.1), 0 2px 4px -2px rgba(16, 24, 40, 0.06);
+    --shadow-lg: 0 12px 16px -4px rgba(16, 24, 40, 0.08), 0 4px 6px -2px rgba(16, 24, 40, 0.03);
+    --shadow-xl: 0 20px 24px -4px rgba(16, 24, 40, 0.08), 0 8px 8px -4px rgba(16, 24, 40, 0.03);
+    --shadow-2xl: 0 24px 48px -12px rgba(16, 24, 40, 0.18);
+    --shadow-overlay: var(--shadow-2xl);
+    --shadow-carousel: var(--shadow-xl);
+    --shadow-focus: 0 0 0 4px rgba(21, 112, 239, 0.14);
+    --shadow-focus-blue: 0 0 0 4px rgba(21, 112, 239, 0.14);
+    --shadow-btn-white: 0 0 0 3px rgba(255, 255, 255, 0.15);
+
+    /* ── OPACITY ── */
+    --opacity-disabled: 0.40;
+    --opacity-muted: 0.70;
+    --opacity-subtle: 0.44;
+    --opacity-hover: 0.85;
+
+    /* ── SIZES ── */
+    --icon-xs: 12px;
+    --icon-sm: 14px;
+    --icon-md: 16px;
+    --icon-lg: 20px;
+    --icon-xl: 24px;
+    --icon-2xl: 28px;
+    --sidebar-width: 220px;
+    --sidebar-collapsed: 64px;
+    --topbar-height: 83px;
+    --input-height: 44px;
+    --btn-height: 44px;
+    --action-btn-size: 32px;
+
+    /* ── UNTITLED UI COLOR PALETTE (Hex Tokens) ── */
+
+    /* Slate/Gray (Neutral scale) */
+    --gray-25: #FCFCFD;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-400: #9CA3AF;
+    --gray-500: #6B7280;
+    --gray-600: #52525B;
+    --gray-700: #404040;
+    --gray-800: #333333;
+    --gray-900: #292929;
+    --gray-950: #1A1A1A;
+
+    /* Primary Accent (Blue/Indigo) */
+    --primary-50: #f5f8ff;
+    --primary-100: #eff4ff;
+    --primary-200: #d1e0ff;
+    --primary-300: #b2ccff;
+    --primary-400: #84adff;
+    --primary-500: #4482ff;
+    --primary-600: #1570ef;
+    --primary-700: #175cd3;
+    --primary-800: #1849a9;
+    --primary-900: #1e3a8a;
+
+    /* Success (Green) */
+    --success-50: #ecfdf3;
+    --success-100: #d1fadf;
+    --success-600: #039855;
+    --success-700: #027a48;
+
+    /* Warning (Orange) */
+    --warning-50: #fffaeb;
+    --warning-100: #fef0c7;
+    --warning-600: #d46b08;
+    --warning-700: #b54708;
+
+    /* Error (Red) */
+    --error-50: #fef3f2;
+    --error-100: #fee4e2;
+    --error-600: #d92d20;
+    --error-700: #b21e1e;
+
+    /* ── BASE SEMANTIC CSS ROLES ── */
+    --bg: #ffffff;
+    --bg2: var(--gray-50);
+    --button-white: #ffffff;
+    --black: var(--gray-900);
+    --white: #ffffff;
+
+    --muted: var(--gray-500);
+    --border: var(--gray-200);
+    --card: #ffffff;
+
+    /* Opacity modifiers using Gray */
+    --black-02: rgba(16, 24, 40, 0.02);
+    --black-03: rgba(16, 24, 40, 0.03);
+    --black-04: rgba(16, 24, 40, 0.04);
+    --black-05: rgba(16, 24, 40, 0.05);
+    --black-07: rgba(16, 24, 40, 0.07);
+    --black-10: rgba(16, 24, 40, 0.10);
+    --black-12: rgba(16, 24, 40, 0.12);
+    --black-15: rgba(16, 24, 40, 0.15);
+    --black-20: rgba(16, 24, 40, 0.20);
+    --black-30: rgba(16, 24, 40, 0.30);
+    --black-35: rgba(16, 24, 40, 0.35);
+    --black-50: rgba(16, 24, 40, 0.50);
+
+    --bg-overlay: rgba(16, 24, 40, 0.6);
+    --bg-overlay-dark: rgba(16, 24, 40, 0.7);
+    --bg-overlay-light: rgba(16, 24, 40, 0.4);
+    --bg-lowend: rgba(255, 255, 255, 0.98);
+
+    /* Mapped state variables to Blue */
+    --blue: var(--primary-600);
+    --blue2: var(--primary-700);
+    --blue-op: rgba(21, 112, 239, 0.3);
+    --blue-10: rgba(21, 112, 239, 0.1);
+    --blue-20: rgba(21, 112, 239, 0.2);
+    --blue-hover-bg: rgba(21, 112, 239, 0.08);
+    --blue-active-bg: rgba(21, 112, 239, 0.16);
+
+    /* Danger states */
+    --danger-red: var(--error-600);
+    --danger-red-hover: var(--error-700);
+
+    /* ── SEMANTIC DESIGN TOKENS MAPPING ── */
+    --color-bg: var(--bg);
+    --color-surface: var(--bg2);
+    --color-card: var(--card);
+    --color-border: var(--border);
+    --color-text-primary: var(--black);
+    --color-text-secondary: var(--muted);
+    --color-text-muted: var(--gray-400);
+
+    /* Semantic states mapping */
+    --color-danger: var(--danger-red);
+    --color-danger-hover: var(--danger-red-hover);
+    --color-success: var(--success-600);
+    --color-warning: var(--warning-600);
+    --color-info: var(--blue);
+
+    --color-hover: var(--black-05);
+    --color-active: var(--black-10);
+    --color-disabled: var(--gray-300);
+    --color-selection: var(--blue-20);
+    --color-focus: var(--blue-10);
+}

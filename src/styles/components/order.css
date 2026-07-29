@@ -1,0 +1,239 @@
+/* =============================================================
+   Focused Order Confirmation Page Custom Design System Component
+   ============================================================= */
+
+.order-page {
+    padding: var(--space-8) var(--space-4);
+    max-width: 800px; /* Centered, clean single-column checkout success */
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .order-page {
+        padding: var(--space-16) var(--space-6); /* Breathable 64px vertical spacing */
+    }
+}
+
+/* Success Banner Alert */
+.order-page__success-banner {
+    display: flex;
+    align-items: center;
+    background-color: var(--success-50);
+    border: 1px solid var(--success-200);
+    padding: var(--space-5) var(--space-6); /* Spacious padding */
+    border-radius: var(--radius-lg);
+    color: var(--success-700);
+    margin-bottom: var(--space-8); /* Airy gap */
+    box-shadow: var(--shadow-xs);
+}
+
+.order-page__success-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.order-page__success-title {
+    font-size: var(--text-sm) !important;
+    font-weight: var(--fw-bold);
+}
+
+@media (min-width: 768px) {
+    .order-page__success-banner {
+        margin-bottom: var(--space-10); /* 40px gap */
+    }
+    .order-page__success-title {
+        font-size: var(--text-md) !important;
+    }
+}
+
+.order-page__order-id {
+    font-size: var(--text-xs) !important;
+    color: var(--success-700);
+    opacity: 0.85;
+    font-weight: var(--fw-medium);
+}
+
+.order-page__success-icon-wrap {
+    width: 40px;
+    height: 40px;
+    margin-right: var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--success-100);
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+}
+
+.order-page__success-icon {
+    font-size: 20px;
+    color: var(--success-600);
+}
+
+/* Order Meta Grid Card */
+.order-page__meta-card {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-10) 0; /* Airy 40px gap below the card */
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    box-shadow: var(--shadow-xs);
+}
+
+@media (min-width: 768px) {
+    .order-page__meta-card {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+}
+
+.order-page__meta-item {
+    padding: var(--space-5) var(--space-6); /* Spacious padding */
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2); /* 8px gap between label and value */
+}
+
+@media (min-width: 768px) {
+    .order-page__meta-item {
+        border-bottom: 0;
+        border-right: 1px solid var(--gray-200);
+        padding: var(--space-5) var(--space-6); /* Spacious padding */
+    }
+    .order-page__meta-item:last-child {
+        border-right: 0;
+    }
+}
+
+.order-page__meta-label {
+    font-size: var(--text-xs) !important; /* 12px min */
+    font-weight: var(--fw-semibold);
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.order-page__meta-value {
+    font-size: var(--text-sm) !important; /* 14px */
+    font-weight: var(--fw-bold);
+    color: var(--gray-900);
+}
+
+.order-page__meta-value--normal {
+    font-weight: var(--fw-medium) !important;
+    color: var(--gray-700) !important;
+}
+
+@media (min-width: 768px) {
+    .order-page__meta-value {
+        font-size: var(--text-md) !important; /* 16px */
+    }
+}
+
+/* Instruction Text */
+.order-page__instructions {
+    font-size: var(--text-sm) !important; /* 14px */
+    color: var(--gray-600);
+    margin-bottom: var(--space-10); /* Spacious 40px gap */
+    font-weight: var(--fw-medium);
+    line-height: 1.5;
+}
+
+/* Order Details Table Section */
+.order-details {
+    margin-top: var(--space-12); /* Spacious 48px gap */
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-xs);
+}
+
+@media (min-width: 768px) {
+    .order-details {
+        padding: var(--space-8); /* Breathable 32px padding */
+    }
+}
+
+.order-details__title {
+    font-size: var(--text-md) !important; /* 16px */
+    font-weight: var(--fw-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .order-details__title {
+        font-size: var(--text-lg) !important; /* 18px */
+    }
+}
+
+.order-details__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-details__table th {
+    text-align: left;
+    font-size: var(--text-xs) !important; /* 12px min */
+    font-weight: var(--fw-semibold);
+    color: var(--gray-450);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: var(--space-3) var(--space-4); /* Horizontal align padding */
+    border-bottom: 2px solid var(--gray-200);
+}
+
+.order-details__table td {
+    font-size: var(--text-sm) !important; /* 14px */
+    color: var(--gray-800);
+    padding: var(--space-4) var(--space-4); /* Horizontal align padding */
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.order-details__table tbody tr:last-child td {
+    border-bottom: 2px solid var(--gray-200);
+}
+
+/* Table Footer rows (Subtotal, Total, etc.) */
+.order-details__table tfoot tr td {
+    font-size: var(--text-sm) !important; /* 14px */
+    font-weight: var(--fw-semibold);
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-100);
+    padding: var(--space-4) var(--space-4); /* Horizontal align padding */
+}
+
+.order-details__table tfoot tr td:first-child {
+    color: var(--gray-600);
+}
+
+/* Total row highlights */
+.order-details__table tfoot tr.order-details__total-row td {
+    font-size: var(--text-md) !important; /* 16px (20px max cap respected) */
+    font-weight: var(--fw-bold);
+    color: var(--gray-900);
+    border-bottom: 0;
+    padding-top: var(--space-6);
+}
+
+/* Continue Shopping & View Orders Button Section */
+.order-page__actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4); /* Space between the two buttons */
+    margin-top: var(--space-8);
+}
+
+.order-page__continue-btn,
+.order-page__orders-btn {
+    min-width: 180px;
+    font-weight: var(--fw-semibold);
+    font-size: var(--text-sm) !important;
+}
