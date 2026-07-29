@@ -84,8 +84,11 @@
     box-shadow: var(--shadow-xs) !important;
 }
 
-/* ── 5 columns layout when toggled ── */
+/* ── 4 columns & 5 columns layout when toggled ── */
 @media (min-width: 1200px) {
+    .search-product-grid--4-cols {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
     .search-product-grid--5-cols {
         grid-template-columns: repeat(5, 1fr) !important;
     }

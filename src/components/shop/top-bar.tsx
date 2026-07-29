@@ -1,3 +1,4 @@
+import React from "react";
 import { Drawer } from "@components/common/drawer/drawer";
 import FilterIcon from "@components/icons/filter-icon";
 import { useUI } from "@contexts/ui.context";
@@ -7,6 +8,33 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { getDirection } from "@utils/get-direction";
 import motionProps from "@components/common/drawer/motion";
+
+const Grid3Icon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="4" height="18" rx="0.5" />
+    <rect x="10" y="3" width="4" height="18" rx="0.5" />
+    <rect x="17" y="3" width="4" height="18" rx="0.5" />
+  </svg>
+);
+
+const Grid4Icon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="3" width="3" height="18" rx="0.5" />
+    <rect x="7.5" y="3" width="3" height="18" rx="0.5" />
+    <rect x="13.5" y="3" width="3" height="18" rx="0.5" />
+    <rect x="19" y="3" width="3" height="18" rx="0.5" />
+  </svg>
+);
+
+const Grid5Icon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="3" width="2" height="18" rx="0.5" />
+    <rect x="6.5" y="3" width="2" height="18" rx="0.5" />
+    <rect x="11" y="3" width="2" height="18" rx="0.5" />
+    <rect x="15.5" y="3" width="2" height="18" rx="0.5" />
+    <rect x="20" y="3" width="2" height="18" rx="0.5" />
+  </svg>
+);
 
 interface SearchTopBarProps {
   gridCols?: number;
@@ -37,39 +65,31 @@ export default function SearchTopBar({ gridCols = 3, setGridCols }: SearchTopBar
       <div className="search-topbar__right">
         {/* Toggle buttons */}
         {setGridCols && (
-          <div className="hidden md:flex items-center gap-1.5 ltr:mr-4 rtl:ml-4 ltr:lg:mr-6 rtl:lg:ml-6">
-            <button
-              onClick={() => setGridCols(3)}
-              className={`p-1.5 border rounded-md transition-all duration-150 focus:outline-none ${
-                gridCols === 3
-                  ? "border-black bg-black text-white"
-                  : "border-gray-200 bg-transparent text-gray-400 hover:text-black hover:border-gray-400"
-              }`}
-              aria-label="3 columns grid"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="3" width="4" height="18" rx="0.5" fill="currentColor" />
-                <rect x="10" y="3" width="4" height="18" rx="0.5" fill="currentColor" />
-                <rect x="17" y="3" width="4" height="18" rx="0.5" fill="currentColor" />
-              </svg>
-            </button>
-            <button
-              onClick={() => setGridCols(5)}
-              className={`p-1.5 border rounded-md transition-all duration-150 focus:outline-none ${
-                gridCols === 5
-                  ? "border-black bg-black text-white"
-                  : "border-gray-200 bg-transparent text-gray-400 hover:text-black hover:border-gray-400"
-              }`}
-              aria-label="5 columns grid"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="3" width="2.5" height="18" rx="0.5" fill="currentColor" />
-                <rect x="6.5" y="3" width="2.5" height="18" rx="0.5" fill="currentColor" />
-                <rect x="11" y="3" width="2.5" height="18" rx="0.5" fill="currentColor" />
-                <rect x="15.5" y="3" width="2.5" height="18" rx="0.5" fill="currentColor" />
-                <rect x="20" y="3" width="2.5" height="18" rx="0.5" fill="currentColor" />
-              </svg>
-            </button>
+          <div className="hidden md:flex items-center gap-2 ltr:mr-4 rtl:ml-4 ltr:lg:mr-6 rtl:lg:ml-6">
+            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider select-none">
+              Grid
+            </span>
+            <div className="flex items-center bg-gray-50 p-1 rounded-lg border border-gray-150 gap-0.5">
+              {[
+                { cols: 3, label: "3 Cols", icon: <Grid3Icon /> },
+                { cols: 4, label: "4 Cols", icon: <Grid4Icon /> },
+                { cols: 5, label: "5 Cols", icon: <Grid5Icon /> },
+              ].map((opt) => (
+                <button
+                  key={opt.cols}
+                  onClick={() => setGridCols(opt.cols)}
+                  className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 focus:outline-none ${
+                    gridCols === opt.cols
+                      ? "bg-white text-gray-900 border border-gray-200 shadow-xs"
+                      : "bg-transparent text-gray-400 hover:text-gray-900 border border-transparent"
+                  }`}
+                  aria-label={`${opt.label} grid`}
+                >
+                  {opt.icon}
+                  <span>{opt.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
         )}
 

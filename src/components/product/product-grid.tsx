@@ -27,7 +27,7 @@ export const ProductGrid: FC<ProductGridProps> = ({ className = "", gridCols = 3
 
   return (
     <>
-      <div className={`search-product-grid ${gridCols === 5 ? 'search-product-grid--5-cols' : ''} ${className}`}>
+      <div className={`search-product-grid ${gridCols === 4 ? 'search-product-grid--4-cols' : gridCols === 5 ? 'search-product-grid--5-cols' : ''} ${className}`}>
         {isLoading && !data?.pages?.length ? (
           <ProductFeedLoader limit={20} uniqueKey="search-product" />
         ) : (
