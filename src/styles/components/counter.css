@@ -1,0 +1,104 @@
+/* ================================================================
+   Counter Component
+   ================================================================ */
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid var(--gray-300);
+}
+
+.counter--default {
+    height: var(--btn-height); /* 44px */
+}
+
+.counter--dark {
+    height: 36px;
+    background-color: transparent;
+    border-color: var(--gray-200);
+}
+
+.counter__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 100%;
+    transition: background-color var(--duration-fast) ease,
+                color var(--duration-fast) ease;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--gray-900);
+    outline: none;
+}
+
+.counter__btn:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+}
+
+.counter--default .counter__btn {
+    width: 44px;
+}
+
+.counter--dark .counter__btn {
+    width: 32px;
+}
+
+.counter--default .counter__btn--decrement {
+    border-right: 1px solid var(--gray-300);
+}
+
+.counter--default .counter__btn--increment {
+    border-left: 1px solid var(--gray-300);
+}
+
+.counter--dark .counter__btn--decrement {
+    border-right: 1px solid var(--gray-200);
+}
+
+.counter--dark .counter__btn--increment {
+    border-left: 1px solid var(--gray-200);
+}
+
+.counter__btn:hover:not(:disabled) {
+    background-color: var(--gray-100);
+    color: var(--gray-900);
+}
+
+.counter--dark .counter__btn:hover:not(:disabled) {
+    background-color: var(--gray-100);
+    color: var(--gray-900);
+}
+
+.counter__value {
+    font-weight: var(--fw-semibold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: default;
+    flex-shrink: 0;
+    color: var(--gray-900);
+}
+
+.counter--default .counter__value {
+    font-size: var(--text-md);
+    width: 80px;
+}
+
+@media (min-width: 768px) {
+    .counter--default .counter__value {
+        width: 96px;
+    }
+}
+
+.counter--dark .counter__value {
+    font-size: var(--text-sm);
+    width: 40px;
+}

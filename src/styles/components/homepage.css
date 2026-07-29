@@ -757,3 +757,8 @@
     display: none !important;
     content: none !important;
 }
+
+/* Grid helper span */
+.products-grid__col-span-full {
+    grid-column: 1 / -1;
+}

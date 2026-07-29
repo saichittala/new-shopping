@@ -1,0 +1,333 @@
+/* =============================================================
+   Luxury Monochrome My Account / Dashboard Custom Component Styles
+   ============================================================= */
+
+.account-layout {
+    padding: var(--space-12) 0;
+    width: 100%;
+}
+
+.account-layout__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .account-layout__container {
+        flex-direction: row;
+    }
+}
+
+/* Sidebar Navigation */
+.account-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    width: 100%;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .account-nav {
+        width: 250px;
+    }
+    
+    /* Support RTL margin offsets */
+    :global([dir="ltr"]) .account-nav {
+        padding-right: var(--space-8);
+    }
+    
+    :global([dir="rtl"]) .account-nav {
+        padding-left: var(--space-8);
+    }
+}
+
+@media (min-width: 1024px) {
+    :global([dir="ltr"]) .account-nav {
+        padding-right: var(--space-12);
+    }
+    
+    :global([dir="rtl"]) .account-nav {
+        padding-left: var(--space-12);
+    }
+}
+
+.account-nav__link,
+.account-nav__btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    width: 100%;
+    padding: calc((var(--space-3) + var(--space-4)) / 2) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--fw-medium);
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    text-align: left;
+    user-select: none;
+}
+
+:global([dir="rtl"]) .account-nav__link,
+:global([dir="rtl"]) .account-nav__btn {
+    text-align: right;
+}
+
+.account-nav__link svg,
+.account-nav__btn svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: inherit;
+}
+
+.account-nav__link:hover,
+.account-nav__btn:hover {
+    background-color: var(--gray-50);
+    color: var(--gray-900);
+}
+
+.account-nav__link--active {
+    background-color: var(--gray-100) !important;
+    color: var(--gray-900) !important;
+    font-weight: var(--fw-semibold) !important;
+}
+
+/* Main Content Panel Area */
+.account-layout__content {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+/* Titles */
+.account-dashboard__title,
+.account-password__title,
+.account-details__title,
+.account-orders__title {
+    font-size: var(--text-md) !important;
+    font-weight: var(--fw-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .account-dashboard__title,
+    .account-password__title,
+    .account-details__title,
+    .account-orders__title {
+        font-size: var(--text-lg) !important;
+        margin-bottom: var(--space-8);
+    }
+}
+
+/* Dashboard Landing text */
+.account-dashboard__welcome {
+    font-size: var(--text-sm) !important;
+    line-height: 1.8;
+    color: var(--gray-600);
+}
+
+.account-dashboard__welcome-link {
+    color: var(--gray-900);
+    font-weight: var(--fw-semibold);
+    text-decoration: underline;
+    transition: color var(--duration-fast) ease;
+}
+
+.account-dashboard__welcome-link:hover {
+    color: var(--gray-500);
+    text-decoration: none;
+}
+
+/* Forms layouts */
+.account-password__form,
+.account-details__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .account-password__form,
+    .account-details__form {
+        max-width: 700px;
+    }
+}
+
+.account-details__grid-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .account-details__grid-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.account-details__gender-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--space-2);
+}
+
+.account-details__gender-label {
+    font-size: var(--text-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-2);
+}
+
+.account-details__gender-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.account-details__submit-wrap,
+.account-password__submit-wrap {
+    margin-top: var(--space-4);
+}
+
+/* Orders List Layouts */
+.account-orders__desktop-table {
+    display: none;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+@media (min-width: 1025px) {
+    .account-orders__desktop-table {
+        display: table;
+    }
+}
+
+.account-orders__th {
+    text-align: left;
+    font-size: var(--text-xs) !important;
+    font-weight: var(--fw-semibold);
+    color: var(--gray-450);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: calc((var(--space-3) + var(--space-4)) / 2) var(--space-4);
+    border-bottom: 2px solid var(--gray-200);
+    background-color: var(--gray-50);
+}
+
+:global([dir="rtl"]) .account-orders__th {
+    text-align: right;
+}
+
+.account-orders__th--center,
+.account-orders__td--center {
+    text-align: center;
+}
+
+.account-orders__th--right,
+.account-orders__td--right {
+    text-align: right;
+}
+
+:global([dir="rtl"]) .account-orders__th--right,
+:global([dir="rtl"]) .account-orders__td--right {
+    text-align: left;
+}
+
+.account-orders__td {
+    font-size: var(--text-sm) !important;
+    color: var(--gray-800);
+    padding: var(--space-4) var(--space-4);
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.account-orders__order-link {
+    color: var(--gray-900);
+    font-weight: var(--fw-bold);
+    text-decoration: underline;
+    transition: color var(--duration-fast) ease;
+}
+
+.account-orders__order-link:hover {
+    color: var(--gray-500);
+    text-decoration: none;
+}
+
+.account-orders__view-btn {
+    display: inline-block;
+    font-size: var(--text-xs) !important;
+    font-weight: var(--fw-semibold);
+    color: var(--white);
+    background-color: var(--gray-900);
+    padding: calc((var(--space-2) + var(--space-3)) / 2) var(--space-4);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background-color var(--duration-fast) ease;
+    cursor: pointer;
+}
+
+.account-orders__view-btn:hover {
+    background-color: var(--gray-800);
+}
+
+/* Mobile Orders List cards */
+.account-orders__mobile-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    width: 100%;
+}
+
+@media (min-width: 1025px) {
+    .account-orders__mobile-list {
+        display: none;
+    }
+}
+
+.account-orders__card {
+    list-style: none;
+    padding: var(--space-5) var(--space-4);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    background-color: var(--white);
+    box-shadow: var(--shadow-xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin: 0;
+}
+
+.account-orders__card-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--text-sm) !important;
+    font-weight: var(--fw-medium);
+    color: var(--gray-500);
+}
+
+.account-orders__card-value {
+    color: var(--gray-900);
+    font-weight: var(--fw-semibold);
+}
+
+/* Reset margin for nested order confirmation panels inside account page views */
+.account-layout__content .order-details {
+    margin-top: 0;
+}
+
+/* Rounded Pill Style buttons for the dashboard form actions & table CTAs */
+.account-password__submit-wrap button,
+.account-details__submit-wrap button,
+.account-orders__view-btn {
+    border-radius: 99px !important;
+}

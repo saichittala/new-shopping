@@ -7,7 +7,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 export default function OrderPage() {
 	return (
 		<AccountLayout>
-			<OrderDetails className="p-0" />
+			<OrderDetails />
 		</AccountLayout>
 	);
 }

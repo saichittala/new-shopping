@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { IoClose } from 'react-icons/io5';
 import isEmpty from 'lodash/isEmpty';
 
 interface Props {
@@ -24,13 +23,20 @@ export const FilteredItem = ({ itemKey, itemValue }: Props) => {
       },
     });
   }
+
   return (
-    <div
-      className="group flex flex-shrink-0 m-1.5 items-center border border-gray-300 bg-borderBottom rounded-lg text-xs px-3.5 py-2.5 capitalize text-heading cursor-pointer transition duration-200 ease-in-out hover:border-heading"
+    <button
+      className="filter-tag"
       onClick={handleClose}
+      aria-label={`Remove filter: ${itemValue}`}
     >
       {itemValue}
-      <IoClose className="text-sm text-body ltr:ml-2 rtl:mr-2 flex-shrink-0 ltr:-mr-0.5 rtl:-ml-0.5 mt-0.5 transition duration-200 ease-in-out group-hover:text-heading" />
-    </div>
+      {/* Untitled UI × icon */}
+      <span className="filter-tag__close" aria-hidden="true">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 3L3 9M3 3L9 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </span>
+    </button>
   );
 };

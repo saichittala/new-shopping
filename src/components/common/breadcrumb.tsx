@@ -10,7 +10,7 @@ interface Props {
 const BreadcrumbItem: React.FC<Props> = ({ children, ...props }) => {
   return (
     <li
-      className="text-sm text-body px-2.5 transition duration-200 ease-in ltr:first:pl-0 rtl:first:pr-0 ltr:last:pr-0 rtl:last:pl-0 hover:text-heading"
+      className="breadcrumb__item"
       {...props}
     >
       {children}
@@ -20,7 +20,7 @@ const BreadcrumbItem: React.FC<Props> = ({ children, ...props }) => {
 
 const BreadcrumbSeparator: React.FC<Props> = ({ children, ...props }) => {
   return (
-    <li className="text-base text-body mt-0.5" {...props}>
+    <li className="breadcrumb__separator" {...props}>
       {children}
     </li>
   );
@@ -51,8 +51,8 @@ export const BreadcrumbItems = (props: any) => {
   }, []);
 
   return (
-    <div className="flex items-center chawkbazarBreadcrumb">
-      <ol className="flex items-center w-full overflow-hidden">{children}</ol>
+    <div className="breadcrumb chawkbazarBreadcrumb">
+      <ol className="breadcrumb__list">{children}</ol>
     </div>
   );
 };
@@ -62,14 +62,14 @@ const Breadcrumb: React.FC<{ separator?: string }> = ({ separator = "/" }) => {
   const { t } = useTranslation("common");
   return (
     <BreadcrumbItems separator={separator}>
-      <ActiveLink href={"/"} activeClassName="font-semibold text-heading">
+      <ActiveLink href={"/"} activeClassName="breadcrumb__item--active">
         {t("breadcrumb-home")}
       </ActiveLink>
 
       {breadcrumbs?.map((breadcrumb: any) => (
         <ActiveLink
           href={breadcrumb.href}
-          activeClassName="font-semibold text-heading"
+          activeClassName="breadcrumb__item--active"
           className="capitalize"
           key={breadcrumb.href}
         >

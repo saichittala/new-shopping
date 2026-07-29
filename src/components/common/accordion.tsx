@@ -32,40 +32,31 @@ export const Collapse: React.FC<CollapseProps> = ({
   const { t } = useTranslation(translatorNS);
   return (
     <div
-      className={cn({
-        'rounded-md bg-gray-200': variant === 'gray',
-        'shadow-sm': isOpen,
+      className={cn("accordion-collapse", {
+        "accordion-collapse--gray": variant === "gray",
+        "accordion-collapse--transparent": variant === "transparent",
+        "accordion-collapse--open": isOpen,
       })}
     >
       <motion.header
         initial={false}
         onClick={() => setExpanded(isOpen ? false : i)}
-        className={cn(
-          'cursor-pointer flex items-center justify-between transition-colors py-5 md:py-6',
-          {
-            'px-6 md:px-8 lg:px-10': variant === 'gray',
-            'border-t border-gray-300': variant === 'transparent',
-          }
-        )}
+        className="accordion-collapse__header"
       >
-        <h2
-          className={cn(
-            'text-sm font-semibold leading-relaxed text-heading ltr:pr-2 rtl:pl-2',
-            {
-              'md:text-base': variant === 'gray',
-              'md:text-base lg:text-lg': variant === 'transparent',
-            }
-          )}
-        >
+        <h2 className="accordion-collapse__title">
           {titleKey ? t(titleKey) : title}
         </h2>
-        <div className="relative flex items-center justify-center flex-shrink-0 w-4 h-4">
-          <div className="w-full h-0.5 bg-heading rounded-sm" />
-          <div
-            className={`origin-bottom transform w-0.5 h-full bg-heading rounded-sm absolute bottom-0 transition-transform duration-500 ease-in-out ${
-              isOpen ? 'scale-0' : 'scale-100'
-            }`}
-          />
+        <div className="accordion-collapse__icon-wrap">
+          {variant === 'transparent' ? (
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          ) : (
+            <>
+              <div className="accordion-collapse__icon-line accordion-collapse__icon-line--horizontal" />
+              <div className="accordion-collapse__icon-line accordion-collapse__icon-line--vertical" />
+            </>
+          )}
         </div>
       </motion.header>
       <AnimatePresence initial={false}>
@@ -77,12 +68,7 @@ export const Collapse: React.FC<CollapseProps> = ({
             exit="from"
             variants={heightCollapse()}
           >
-            <div
-              className={cn('pb-6 md:pb-7 leading-7 text-sm text-gray-600', {
-                'pt-5 border-t border-gray-300 px-6 md:px-8 lg:px-10':
-                  variant === 'gray',
-              })}
-            >
+            <div className="accordion-collapse__content">
               {contentKey ? t(contentKey) : content}
             </div>
           </motion.div>

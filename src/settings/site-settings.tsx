@@ -27,13 +27,13 @@ export const siteSettings = {
   name: 'ChawkBazar',
   description: 'Fastest E-commerce template built with React, NextJS, TypeScript, @tanstack/react-query and Tailwind CSS.',
   author: {
-    name: 'REDQ',
+    name: 'MAHARA',
     websiteUrl: 'https://redq.io',
     address: '',
   },
   logo: {
-    url: '/assets/images/logo.svg',
-    alt: 'ChawkBazar',
+    url: '/assets/images/logo-2.svg',
+    alt: 'MAHARA',
     href: '/',
     width: 95,
     height: 30,

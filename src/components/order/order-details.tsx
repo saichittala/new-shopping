@@ -74,7 +74,7 @@ const OrderDetails: React.FC = () => {
             <td>{t('text-shipping')}:</td>
             <td>
               {shipping}
-              <span style={{ fontSize: '13px', fontWeight: 'normal', paddingLeft: '6px', display: 'inline-block', color: 'var(--gray-500)' }}>
+              <span className="order-details__shipping-method">
                 via Flat rate
               </span>
             </td>

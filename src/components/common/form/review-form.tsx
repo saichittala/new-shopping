@@ -29,12 +29,12 @@ const ReviewForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full mx-auto flex flex-col justify-center mt-6 lg:mt-8"
+      className="review-form"
       noValidate
     >
-      <div className="flex flex-col space-y-5 md:space-y-6 lg:space-y-7">
-        <div className="pb-1.5">
-          <label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
+      <div className="review-form__wrapper">
+        <div className="review-form__rating">
+          <label className="review-form__rating-label">
             {t('forms:label-your-rating')}
           </label>
           <ReactStars
@@ -50,11 +50,11 @@ const ReviewForm: React.FC = () => {
           {...register('message', { required: 'Message is required' })}
           errorKey={errors.message?.message}
         />
-        <div className="flex flex-col md:flex-row space-y-5 md:space-y-0">
+        <div className="review-form__input-row">
           <Input
             labelKey="forms:label-name-star"
             {...register('name', { required: 'Name is required' })}
-            className="w-full md:w-1/2 "
+            className="review-form__input review-form__input--half"
             errorKey={errors.name?.message}
             variant="solid"
           />
@@ -69,7 +69,7 @@ const ReviewForm: React.FC = () => {
                 message: 'forms:email-error',
               },
             })}
-            className="w-full md:w-1/2 ltr:md:ml-2.5 rtl:md:mr-2.5 ltr:lg:ml-5 rtl:lg:mr-5 mt-2 md:mt-0"
+            className="review-form__input review-form__input--half review-form__input--email"
             errorKey={errors.email?.message}
             variant="solid"
           />
@@ -78,10 +78,10 @@ const ReviewForm: React.FC = () => {
           {...register('cookie')}
           labelKey="forms:label-save-review-information"
         />
-        <div className="pt-1">
+        <div className="review-form__submit-wrap">
           <Button
             type="submit"
-            className="h-12 md:mt-1 text-sm lg:text-base w-full sm:w-auto"
+            className="review-form__submit-btn"
           >
             {t('common:button-submit')}
           </Button>

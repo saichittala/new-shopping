@@ -159,3 +159,133 @@
 .form-field--error .form-field__hint {
     color: var(--color-danger);
 }
+
+/* ================================================================
+   Review Form (Product Detail Page)
+   ================================================================ */
+
+.review-form {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+    .review-form {
+        margin-top: var(--space-8);
+    }
+}
+
+.review-form__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+    .review-form__wrapper {
+        gap: var(--space-6);
+    }
+}
+
+@media (min-width: 1024px) {
+    .review-form__wrapper {
+        gap: var(--space-7);
+    }
+}
+
+.review-form__rating {
+    padding-bottom: 6px;
+}
+
+.review-form__rating-label {
+    display: block;
+    color: var(--gray-600);
+    font-weight: var(--fw-semibold);
+    font-size: var(--text-sm);
+    line-height: 1;
+    margin-bottom: var(--space-3);
+    cursor: pointer;
+}
+
+.review-form__input-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+    .review-form__input-row {
+        flex-direction: row;
+        gap: 0;
+    }
+}
+
+.review-form__input {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .review-form__input--half {
+        width: 50%;
+    }
+}
+
+[dir="ltr"] .review-form__input--email {
+    margin-top: var(--space-2);
+}
+
+@media (min-width: 768px) {
+    [dir="ltr"] .review-form__input--email {
+        margin-top: 0;
+        margin-left: 10px;
+    }
+    
+    [dir="rtl"] .review-form__input--email {
+        margin-top: 0;
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    [dir="ltr"] .review-form__input--email {
+        margin-left: 20px;
+    }
+    
+    [dir="rtl"] .review-form__input--email {
+        margin-right: 20px;
+    }
+}
+
+.review-form__submit-wrap {
+    padding-top: var(--space-1);
+}
+
+.review-form__submit-btn {
+    height: 48px;
+    font-size: var(--text-sm);
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .review-form__submit-btn {
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .review-form__submit-btn {
+        margin-top: var(--space-1);
+    }
+}
+
+@media (min-width: 1024px) {
+    .review-form__submit-btn {
+        font-size: var(--text-md);
+    }
+}
+

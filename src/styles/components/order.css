@@ -214,6 +214,14 @@
     color: var(--gray-600);
 }
 
+.order-details__shipping-method {
+    font-size: 13px;
+    font-weight: var(--fw-normal);
+    padding-left: calc((var(--space-1) + var(--space-2)) / 2);
+    display: inline-block;
+    color: var(--gray-500);
+}
+
 /* Total row highlights */
 .order-details__table tfoot tr.order-details__total-row td {
     font-size: var(--text-md) !important; /* 16px (20px max cap respected) */

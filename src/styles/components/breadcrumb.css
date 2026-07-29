@@ -1,0 +1,64 @@
+/* ================================================================
+   Breadcrumb Navigation Component
+   ================================================================ */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb__list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb__item {
+    font-size: var(--text-sm);
+    color: var(--gray-500);
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: color var(--duration-fast) ease;
+    white-space: nowrap;
+}
+
+.breadcrumb__item:hover {
+    color: var(--gray-900);
+}
+
+.breadcrumb__item a {
+    color: inherit;
+    text-decoration: none;
+    transition: inherit;
+}
+
+.breadcrumb__item--active {
+    font-weight: var(--fw-semibold);
+    color: var(--gray-900);
+}
+
+[dir="ltr"] .breadcrumb__item:first-child {
+    padding-left: 0;
+}
+
+[dir="rtl"] .breadcrumb__item:first-child {
+    padding-right: 0;
+}
+
+[dir="ltr"] .breadcrumb__item:last-child {
+    padding-right: 0;
+}
+
+[dir="rtl"] .breadcrumb__item:last-child {
+    padding-left: 0;
+}
+
+.breadcrumb__separator {
+    font-size: var(--text-md);
+    color: var(--gray-400);
+    margin-top: 2px;
+}

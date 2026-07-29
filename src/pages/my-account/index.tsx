@@ -10,28 +10,28 @@ export default function AccountPage() {
     const { t } = useTranslation("common");
     return (
         <AccountLayout>
-            <h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-3 xl:mb-5">
+            <h2 className="account-dashboard__title">
                 {t("text-dashboard")}
             </h2>
-            <p className=" text-sm leading-7 md:text-base md:leading-loose lowercase">
+            <p className="account-dashboard__welcome">
                 {t("text-account-dashboard")}{" "}
                 <Link
                     href={ROUTES.ORDERS}
-                    className="text-heading underline font-semibold"
+                    className="account-dashboard__welcome-link"
                 >
                     {t("text-recent-orders")}
                 </Link>
                 , {t("text-manage-your")}{" "}
                 <Link
                     href={ROUTES.ACCOUNT_DETAILS}
-                    className="text-heading underline font-semibold"
+                    className="account-dashboard__welcome-link"
                 >
                     {t("text-account-details")}
                 </Link>{" "}
                 {t("text-and")}{" "}
                 <Link
                     href={ROUTES.CHANGE_PASSWORD}
-                    className="text-heading underline font-semibold"
+                    className="account-dashboard__welcome-link"
                 >
                     {t("text-change-your-password")}
                 </Link>

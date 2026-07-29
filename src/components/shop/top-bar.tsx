@@ -1,6 +1,5 @@
 import { Drawer } from "@components/common/drawer/drawer";
 import FilterIcon from "@components/icons/filter-icon";
-import Text from "@components/ui/text";
 import { useUI } from "@contexts/ui.context";
 import FilterSidebar from "@components/shop/filter-sidebar";
 import ListBox from "@components/ui/list-box";
@@ -14,22 +13,24 @@ export default function SearchTopBar() {
   const { t } = useTranslation("common");
   const { locale } = useRouter();
   const dir = getDirection(locale);
+
   return (
-    <div className="flex justify-between items-center mb-7">
-      <Text variant="pageHeading" className="hidden lg:inline-flex pb-1">
-        {t("text-casual-wear")}
-      </Text>
+    <div className="search-topbar">
+      <h1 className="search-topbar__title">{t("text-casual-wear")}</h1>
+
+      {/* Mobile filter trigger */}
       <button
-        className="lg:hidden text-heading text-sm px-4 py-2 font-semibold border border-gray-300 rounded-md flex items-center transition duration-200 ease-in-out focus:outline-none hover:bg-gray-200"
+        className="search-topbar__mobile-filter-btn"
         onClick={openFilter}
+        aria-label="Open filters"
       >
         <FilterIcon />
-        <span className="ltr:pl-2.5 rtl:pr-2.5">{t("text-filters")}</span>
+        <span>{t("text-filters")}</span>
       </button>
-      <div className="flex items-center justify-end">
-        <div className="flex-shrink-0 text-body text-xs md:text-sm leading-4 ltr:pr-4 rtl:pl-4 ltr:md:mr-6 rtl:md:ml-6 ltr:pl-2 rtl:pr-2 hidden lg:block">
-          9,608 {t("text-items")}
-        </div>
+
+      {/* Right: count + sort */}
+      <div className="search-topbar__right">
+        <span className="search-topbar__count">9,608 {t("text-items")}</span>
         <ListBox
           options={[
             { name: "text-sorting-options", value: "options" },
@@ -40,7 +41,8 @@ export default function SearchTopBar() {
           ]}
         />
       </div>
-      {/* TODO: need to use just one drawer component */}
+
+      {/* Mobile filter drawer */}
       <Drawer
         placement={dir === "rtl" ? "right" : "left"}
         open={displayFilter}

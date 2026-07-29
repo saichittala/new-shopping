@@ -4,21 +4,19 @@ import Subscription from "@components/common/subscription";
 import ProductSingleDetails from "@components/product/product-single-details";
 import RelatedProducts from "@containers/related-products";
 import Divider from "@components/ui/divider";
-import Breadcrumb from "@components/common/breadcrumb";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetServerSideProps } from "next";
 
 export default function ProductPage() {
 	return (
 		<>
-			<Divider className="mb-0" />
+			<Divider className="product-page-divider" />
 			<Container>
-				<div className="pt-8">
-					<Breadcrumb />
+				<div className="product-page-content-wrapper">
+					<ProductSingleDetails />
+					<RelatedProducts sectionHeading="text-related-products" />
+					<Subscription />
 				</div>
-				<ProductSingleDetails />
-				<RelatedProducts sectionHeading="text-related-products" />
-				<Subscription />
 			</Container>
 		</>
 	);

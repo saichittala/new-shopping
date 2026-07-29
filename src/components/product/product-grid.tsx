@@ -26,7 +26,7 @@ export const ProductGrid: FC<ProductGridProps> = ({ className = "" }) => {
 
   return (
     <>
-      <div className={`product-grid ${className}`}>
+      <div className={`search-product-grid ${className}`}>
         {isLoading && !data?.pages?.length ? (
           <ProductFeedLoader limit={20} uniqueKey="search-product" />
         ) : (
@@ -35,7 +35,9 @@ export const ProductGrid: FC<ProductGridProps> = ({ className = "" }) => {
               <ProductCard
                 key={`product--key${product.id}`}
                 product={product}
-                variant="grid"
+                variant="gridModern"
+                imgWidth={344}
+                imgHeight={344}
               />
             ));
           })

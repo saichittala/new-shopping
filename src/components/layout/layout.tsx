@@ -16,6 +16,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
 	const { t } = useTranslation('common');
 	const router = useRouter();
 	const isCheckoutFlow = router.pathname === '/checkout' || router.pathname === '/order';
+	const isAccountPage = router.pathname.startsWith('/my-account');
 
 	return (
 		<div className="flex flex-col min-h-screen">
@@ -58,7 +59,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
 			<main className="relative flex-grow main-content">
 				{children}
 			</main>
-			{!isCheckoutFlow && <Footer />}
+			{!isCheckoutFlow && !isAccountPage && <Footer />}
 			<MobileNavigation />
 			<Search />
 			<CookieBar

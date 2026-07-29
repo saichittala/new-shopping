@@ -148,17 +148,21 @@
     position: relative;
     margin-bottom: 0;
     width: 100%;
+    aspect-ratio: 3 / 4;
     border-radius: var(--radius-md) var(--radius-md) 0 0;
     overflow: hidden;
 }
 
-@media (min-width: 768px) {
-
-    .product-card__image-wrap--gridModern,
-    .product-card__image-wrap--gridModernWide,
-    .product-card__image-wrap--gridTrendy {
-        margin-bottom: 0;
-    }
+/* Image fills the aspect-ratio box absolutely */
+.product-card__image-wrap--gridModern img,
+.product-card__image-wrap--gridModernWide img,
+.product-card__image-wrap--gridTrendy img {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center top;
 }
 
 .product-card__image-wrap--listSmall {

@@ -30,7 +30,7 @@ const ChangePassword: React.FC = () => {
 	const { t } = useTranslation();
 	return (
 		<>
-			<h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-6 xl:mb-8">
+			<h2 className="account-password__title">
 				{t("common:text-change-password")}
 			</h2>
 			<motion.div
@@ -40,40 +40,35 @@ const ChangePassword: React.FC = () => {
 				exit="from"
 				//@ts-ignore
 				variants={fadeInTop(0.35)}
-				className={`w-full flex  h-full lg:w-8/12 flex-col`}
+				className="account-password"
 			>
 				<form
 					onSubmit={handleSubmit(onSubmit)}
-					className="w-full mx-auto flex flex-col justify-center "
+					className="account-password__form"
 				>
-					<div className="flex flex-col space-y-3">
-						<PasswordInput
-							labelKey="forms:label-old-password"
-							errorKey={errors.oldPassword?.message}
-							{...register("oldPassword", {
-								required: "forms:password-old-required",
-							})}
-							className="mb-4"
-						/>
-						<PasswordInput
-							labelKey="forms:label-new-password"
-							errorKey={errors.newPassword?.message}
-							{...register("newPassword", {
-								required: "forms:label-new-password",
-							})}
-							className="mb-4"
-						/>
+					<PasswordInput
+						labelKey="forms:label-old-password"
+						errorKey={errors.oldPassword?.message}
+						{...register("oldPassword", {
+							required: "forms:password-old-required",
+						})}
+					/>
+					<PasswordInput
+						labelKey="forms:label-new-password"
+						errorKey={errors.newPassword?.message}
+						{...register("newPassword", {
+							required: "forms:label-new-password",
+						})}
+					/>
 
-						<div className="relative">
-							<Button
-								type="submit"
-								loading={isPending}
-								disabled={isPending}
-								className="h-13 mt-3"
-							>
-								{t("common:text-change-password")}
-							</Button>
-						</div>
+					<div className="account-password__submit-wrap">
+						<Button
+							type="submit"
+							loading={isPending}
+							disabled={isPending}
+						>
+							{t("common:text-change-password")}
+						</Button>
 					</div>
 				</form>
 			</motion.div>

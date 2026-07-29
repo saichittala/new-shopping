@@ -125,13 +125,15 @@
     width: 44px;
     height: 44px;
     border: 1px solid transparent !important;
-    border-radius: 100% !important; /* 100% circular buttons */
+    border-radius: 100% !important;
+    /* 100% circular buttons */
     background-color: transparent !important;
     color: var(--gray-700);
     box-shadow: none !important;
     cursor: pointer;
     transition: var(--transition-colors), border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
-    position: relative; /* relative for absolute badge position */
+    position: relative;
+    /* relative for absolute badge position */
 }
 
 .site-header__search-btn:hover,
@@ -169,7 +171,8 @@
     min-width: 18px;
     height: 18px;
     padding: 0 4px;
-    border-radius: 9999px !important; /* Pill rounded corners */
+    border-radius: 9999px !important;
+    /* Pill rounded corners */
 }
 
 /* Auth button wrapper */

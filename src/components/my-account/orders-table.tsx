@@ -10,7 +10,7 @@ const OrdersTable: React.FC = () => {
   const { t } = useTranslation('common');
   return (
     <>
-      <h2 className="mb-6 text-lg font-bold md:text-xl xl:text-2xl text-heading xl:mb-8">
+      <h2 className="account-orders__title">
         {t('text-orders')}
       </h2>
       <motion.div
@@ -20,79 +20,79 @@ const OrdersTable: React.FC = () => {
         exit="from"
         //@ts-ignore
         variants={fadeInTop(0.35)}
-        className={`w-full flex flex-col`}
+        className="account-orders"
       >
         {width >= 1025 ? (
-          <table>
-            <thead className="text-sm lg:text-base">
+          <table className="account-orders__desktop-table">
+            <thead>
               <tr>
-                <th className="p-4 font-semibold bg-gray-100 text-heading ltr:text-left rtl:text-right ltr:first:rounded-tl-md rtl:first:rounded-tr-md">
+                <th className="account-orders__th">
                   {t('text-order')}
                 </th>
-                <th className="p-4 font-semibold bg-gray-100 text-heading ltr:text-left rtl:text-right lg:text-center">
+                <th className="account-orders__th account-orders__th--center">
                   {t('text-date')}
                 </th>
-                <th className="p-4 font-semibold bg-gray-100 text-heading ltr:text-left rtl:text-right lg:text-center">
+                <th className="account-orders__th account-orders__th--center">
                   {t('text-status')}
                 </th>
-                <th className="p-4 font-semibold bg-gray-100 text-heading ltr:text-left rtl:text-right lg:text-center">
+                <th className="account-orders__th account-orders__th--center">
                   {t('text-total')}
                 </th>
-                <th className="p-4 font-semibold bg-gray-100 text-heading ltr:text-left rtl:text-right ltr:lg:text-right rtl:lg:text-left ltr:last:rounded-tr-md rtl:last:rounded-tl-md">
+                <th className="account-orders__th account-orders__th--right">
                   {t('text-actions')}
                 </th>
               </tr>
             </thead>
-            <tbody className="text-sm lg:text-base">
-              <tr className="border-b border-gray-300 last:border-b-0">
-                <td className="px-4 py-5 ltr:text-left rtl:text-right">
+            <tbody>
+              <tr>
+                <td className="account-orders__td">
                   <Link
                     href="/my-account/orders/3203"
-                    className="underline hover:no-underline text-body"
+                    className="account-orders__order-link"
                   >
                     #3203
                   </Link>
                 </td>
-                <td className="px-4 py-5 ltr:text-left rtl:text-right lg:text-center text-heading">
+                <td className="account-orders__td account-orders__td--center">
                   March 18, 2021
                 </td>
-                <td className="px-4 py-5 ltr:text-left rtl:text-right lg:text-center text-heading">
+                <td className="account-orders__td account-orders__td--center">
                   Completed
                 </td>
-                <td className="px-4 py-5 ltr:text-left rtl:text-right lg:text-center text-heading">
+                <td className="account-orders__td account-orders__td--center">
                   $16,950.00 for 93 items
                 </td>
-                <td className="px-4 py-5 ltr:text-right rtl:text-left text-heading">
+                <td className="account-orders__td account-orders__td--right">
                   <Link
                     href="/my-account/orders/3203"
-                    className="text-sm leading-4 bg-heading text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600"
+                    className="account-orders__view-btn"
                   >
                     {t('button-view')}
                   </Link>
                 </td>
               </tr>
-              <tr className="border-b border-gray-300 last:border-b-0">
-                <td className="px-4 py-5 ltr:text-left rtl:text-right">
+              <tr>
+                <td className="account-orders__td">
                   <Link
                     href="/my-account/orders/3204"
-                    className="underline hover:no-underline text-body"
+                    className="account-orders__order-link"
                   >
                     #3204
                   </Link>
                 </td>
-                <td className="px-4 py-5 ltr:text-left rtl:text-right lg:text-center text-heading">
+                <td className="account-orders__td account-orders__td--center">
                   March 18, 2021
                 </td>
-                <td className="px-4 py-5 ltr:text-left rtl:text-right lg:text-center text-heading">
+                <td className="account-orders__td account-orders__td--center">
                   Completed
                 </td>
-                <td className="px-4 py-5 ltr:text-left rtl:text-right lg:text-center text-heading">
+                <td className="account-orders__td account-orders__td--center">
                   $16,950.00 for 93 items
                 </td>
-                <td className="px-4 py-5 ltr:text-right rtl:text-left text-heading">
+                <td className="account-orders__td account-orders__td--right">
                   <Link
                     href="/my-account/orders/3204"
-                    className="text-sm leading-4 bg-heading text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600"
+                    className="account-orders__view-btn"
                   >
                     {t('button-view')}
                   </Link>
@@ -101,73 +101,73 @@ const OrdersTable: React.FC = () => {
             </tbody>
           </table>
         ) : (
-          <div className="w-full space-y-4">
-            <ul className="flex flex-col px-4 pt-5 pb-6 space-y-5 text-sm font-semibold border border-gray-300 rounded-md text-heading">
-              <li className="flex items-center justify-between">
+          <div className="account-orders__mobile-list">
+            <ul className="account-orders__card">
+              <li className="account-orders__card-item">
                 {t('text-order')}
-                <span className="font-normal">
+                <span className="account-orders__card-value">
                   <Link
                     href="/my-account/orders/3203"
-                    className="underline hover:no-underline text-body"
+                    className="account-orders__order-link"
                   >
                     #3203
                   </Link>
                 </span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="account-orders__card-item">
                 {t('text-date')}
-                <span className="font-normal">March 18, 2021</span>
+                <span className="account-orders__card-value">March 18, 2021</span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="account-orders__card-item">
                 {t('text-status')}
-                <span className="font-normal">Completed</span>
+                <span className="account-orders__card-value">Completed</span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="account-orders__card-item">
                 {t('text-total')}
-                <span className="font-normal">$16,950.00 for 93 items</span>
+                <span className="account-orders__card-value">$16,950.00 for 93 items</span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="account-orders__card-item">
                 {t('text-actions')}
-                <span className="font-normal">
+                <span>
                   <Link
                     href="/my-account/orders/3203"
-                    className="text-sm leading-4 bg-heading text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600"
+                    className="account-orders__view-btn"
                   >
                     {t('button-view')}
                   </Link>
                 </span>
               </li>
             </ul>
-            <ul className="flex flex-col px-4 pt-5 pb-6 space-y-5 text-sm font-semibold border border-gray-300 rounded-md text-heading">
-              <li className="flex items-center justify-between">
+            <ul className="account-orders__card">
+              <li className="account-orders__card-item">
                 {t('text-order')}
-                <span className="font-normal">
+                <span className="account-orders__card-value">
                   <Link
                     href="/my-account/orders/3204"
-                    className="underline hover:no-underline text-body"
+                    className="account-orders__order-link"
                   >
                     #3204
                   </Link>
                 </span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="account-orders__card-item">
                 {t('text-date')}
-                <span className="font-normal">March 18, 2021</span>
+                <span className="account-orders__card-value">March 18, 2021</span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="account-orders__card-item">
                 {t('text-status')}
-                <span className="font-normal">Completed</span>
+                <span className="account-orders__card-value">Completed</span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="account-orders__card-item">
                 {t('text-total')}
-                <span className="font-normal">$16,950.00 for 93 items</span>
+                <span className="account-orders__card-value">$16,950.00 for 93 items</span>
               </li>
-              <li className="flex items-center justify-between">
+              <li className="account-orders__card-item">
                 {t('text-actions')}
-                <span className="font-normal">
+                <span>
                   <Link
                     href="/my-account/orders/3204"
-                    className="text-sm leading-4 bg-heading text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600"
+                    className="account-orders__view-btn"
                   >
                     {t('button-view')}
                   </Link>

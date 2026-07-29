@@ -4,7 +4,7 @@
 
 .toast-container {
     position: fixed;
-    top: 56px;
+    top: 36px;
     left: 50%;
     transform: translateX(-50%);
     z-index: var(--z-toast, 10000);
@@ -21,7 +21,7 @@
 
 @media (max-width: 480px) {
     .toast-container {
-        top: 56px;
+        top: 36px;
         left: 0;
         right: 0;
         transform: none;

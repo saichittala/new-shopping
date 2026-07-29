@@ -1,0 +1,173 @@
+/* ================================================================
+   Accordion / Collapse Component (Snitch transparent border style)
+   ================================================================ */
+
+.accordion-collapse {
+    border-radius: var(--radius-md);
+    transition: background-color var(--duration-fast) ease;
+}
+
+.accordion-collapse--gray {
+    background-color: var(--gray-100);
+}
+
+.accordion-collapse--transparent {
+    background-color: transparent;
+    border-bottom: 1px solid var(--gray-200);
+    border-radius: 0;
+}
+
+/* Add top border to the first transparent accordion to frame them correctly */
+.accordion-collapse--transparent:first-of-type {
+    border-top: 1px solid var(--gray-200);
+}
+
+.accordion-collapse--open {
+    box-shadow: none;
+}
+
+.accordion-collapse--gray.accordion-collapse--open {
+    box-shadow: var(--shadow-sm);
+}
+
+.accordion-collapse__header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color var(--duration-fast) ease;
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+}
+
+@media (min-width: 768px) {
+    .accordion-collapse__header {
+        padding-top: var(--space-6);
+        padding-bottom: var(--space-6);
+    }
+}
+
+.accordion-collapse--gray .accordion-collapse__header {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .accordion-collapse--gray .accordion-collapse__header {
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+    }
+}
+
+@media (min-width: 1024px) {
+    .accordion-collapse--gray .accordion-collapse__header {
+        padding-left: var(--space-10);
+        padding-right: var(--space-10);
+    }
+}
+
+.accordion-collapse__title {
+    font-size: var(--text-sm);
+    font-weight: var(--fw-semibold);
+    line-height: 1.5;
+    color: var(--gray-900);
+    margin: 0;
+}
+
+[dir="ltr"] .accordion-collapse__title {
+    padding-right: var(--space-2);
+}
+
+[dir="rtl"] .accordion-collapse__title {
+    padding-left: var(--space-2);
+}
+
+@media (min-width: 768px) {
+    .accordion-collapse__title {
+        font-size: var(--text-md);
+    }
+}
+
+.accordion-collapse--transparent .accordion-collapse__title {
+    font-size: var(--text-xs) !important;
+    font-weight: var(--fw-bold) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+}
+
+/* Icon / Indicator: thin + and - signs */
+.accordion-collapse__icon-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+}
+
+.accordion-collapse__icon-line {
+    background-color: var(--gray-900);
+}
+
+.accordion-collapse__icon-line--horizontal {
+    width: 100%;
+    height: 1px;
+}
+
+.accordion-collapse__icon-line--vertical {
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform var(--duration-base) var(--ease-smooth);
+}
+
+.accordion-collapse--open .accordion-collapse__icon-line--vertical {
+    transform: scaleY(0);
+}
+
+/* Content */
+.accordion-collapse__content {
+    padding-bottom: var(--space-6);
+    line-height: 1.85;
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+}
+
+@media (min-width: 768px) {
+    .accordion-collapse__content {
+        padding-bottom: var(--space-7);
+    }
+}
+
+.accordion-collapse--gray .accordion-collapse__content {
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--gray-200);
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .accordion-collapse--gray .accordion-collapse__content {
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+    }
+}
+
+@media (min-width: 1024px) {
+    .accordion-collapse--gray .accordion-collapse__content {
+        padding-left: var(--space-10);
+        padding-right: var(--space-10);
+    }
+}
+
+/* Arrow indicators transitions */
+.accordion-collapse--transparent .accordion-collapse__icon-wrap svg {
+    transition: transform var(--duration-base) var(--ease-smooth);
+}
+
+.accordion-collapse--transparent.accordion-collapse--open .accordion-collapse__icon-wrap svg {
+    transform: rotate(90deg);
+}
