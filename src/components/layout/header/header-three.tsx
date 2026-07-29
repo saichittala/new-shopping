@@ -54,8 +54,10 @@ export default function Header() {
               <span className="bar" />
             </span>
           </button>
-          <div className="flex items-center ltr:2xl:mr-12 rtl:2xl:ml-12 ltr:3xl:mr-20 rtl:3xl:ml-20">
+          <div className="site-header__center">
             <Logo />
+          </div>
+          <div className="flex items-center ltr:2xl:mr-12 rtl:2xl:ml-12 ltr:3xl:mr-20 rtl:3xl:ml-20">
             <div className="hidden transition-all duration-100 ease-in-out lg:flex ltr:ml-7 rtl:mr-7 ltr:xl:ml-9 rtl:xl:mr-9 ltr:pr-2 rtl:pl-2 headerTopMenu">
               {site_header.pagesMenu?.map((item: any) => (
                 <Link

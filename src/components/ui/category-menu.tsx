@@ -1,42 +1,25 @@
 import cn from 'classnames';
 import ListMenu from '@components/ui/list-menu';
-import { useTranslation } from 'next-i18next';
 
 const HamburgerIcon = () => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    xmlns="http://www.w3.org/2000/svg"
     className="category-menu__icon-leading"
   >
-    <line x1="3" y1="12" x2="21" y2="12" />
-    <line x1="3" y1="6" x2="21" y2="6" />
-    <line x1="3" y1="18" x2="21" y2="18" />
+    <path
+      d="M3 8.5H21M3 15.5H21"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
-const ChevronDownIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="category-menu__icon-trailing"
-  >
-    <polyline points="6 9 12 15 18 9" />
-  </svg>
-);
 
 interface CategoryMenuProps {
   className?: string;
@@ -49,14 +32,12 @@ const CategoryMenu: React.FC<CategoryMenuProps> = ({
   categoryMenu,
   variant = "default",
 }) => {
-  const { t } = useTranslation('menu');
 
   return (
     <div className={cn('category-menu', `category-menu--${variant}`, className)}>
       <div className="category-menu__trigger">
         <HamburgerIcon />
-        <span>{t('menu-all-categories')}</span>
-        <ChevronDownIcon />
+        <span>Menu</span>
       </div>
 
       {categoryMenu && Array.isArray(categoryMenu) && (

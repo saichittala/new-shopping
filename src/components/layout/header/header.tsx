@@ -39,14 +39,18 @@ const Header: React.FC = () => {
     <header id="siteHeader" className={cn("site-header", { "site-header--transparent": isHome })}>
       <div ref={siteHeaderRef} className="site-header__inner innerSticky">
         <div className="site-header__row">
-          {/* Logo & Category Outline Dropdown */}
-          <div className="site-header__brand">
-            <Logo />
+          {/* Left: Category Outline Dropdown (Menu) */}
+          <div className="site-header__left">
             <CategoryMenu
-              className="relative hidden lg:block ltr:ml-6 rtl:mr-6 lg:ltr:ml-8 lg:rtl:mr-8"
+              className="relative hidden lg:block"
               categoryMenu={site_header?.categoryMenu}
               variant="outline"
             />
+          </div>
+
+          {/* Center: Logo */}
+          <div className="site-header__center">
+            <Logo />
           </div>
           {/* Right-side action buttons */}
           <div className="site-header__actions">
