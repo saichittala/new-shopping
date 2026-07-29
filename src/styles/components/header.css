@@ -32,10 +32,25 @@
     background-color: var(--white);
     color: var(--gray-700);
     font-family: var(--font);
-    transition: box-shadow var(--duration-base) var(--ease-standard),
-        border-color var(--duration-base) var(--ease-standard),
-        background-color var(--duration-base) var(--ease-standard),
-        backdrop-filter var(--duration-base) var(--ease-standard);
+    transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                border-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.site-header__inner button,
+.site-header__inner a,
+.site-header__inner svg,
+.site-header__inner img,
+.site-header__inner .site-header__search-btn,
+.site-header__inner .site-header__action-btn,
+.site-header__inner .site-header__auth-btn,
+.site-header__inner .site-header__badge {
+    transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                border-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                filter 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
 
 @media (min-width: 640px) {
@@ -66,9 +81,9 @@
 .innerSticky {
     box-shadow: none !important;
     border-bottom: 1px solid transparent !important;
-    transition: box-shadow var(--duration-base) var(--ease-standard),
-        border-color var(--duration-base) var(--ease-standard),
-        background-color var(--duration-base) var(--ease-standard) !important;
+    transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                border-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }
 
 .innerSticky.is-scrolling {
