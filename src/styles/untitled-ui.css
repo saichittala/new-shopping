@@ -30,6 +30,7 @@
 @import "./components/wishlist.css";
 @import "./components/toast.css";
 @import "./components/homepage.css";
+@import "./components/category.css";
 
 /* Prada Browse by Category Styles */
 .prada-categories-container {

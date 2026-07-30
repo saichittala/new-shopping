@@ -7,10 +7,12 @@ import CookieBar from '@components/common/cookie-bar';
 import { useAcceptCookies } from '@utils/use-accept-cookies';
 import Button from '@components/ui/button';
 import { useTranslation } from 'next-i18next';
+import { usePageTitle } from '@utils/use-page-title';
 
 export default function Layout({ children }: React.PropsWithChildren<{}>) {
 	const { acceptedCookies, onAcceptCookies } = useAcceptCookies();
 	const { t } = useTranslation('common');
+	const pageTitle = usePageTitle();
 	return (
 		<div className="flex flex-col min-h-screen">
 			<NextSeo
@@ -20,7 +22,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
 						content: 'width=device-width, initial-scale=1.0',
 					},
 				]}
-				title="Mahara - React Next E-commerce Template"
+				title={pageTitle}
 				description="Fastest E-commerce template built with React, NextJS, TypeScript, @tanstack/react-query."
 				canonical="https://mahara.vercel.app/"
 				openGraph={{

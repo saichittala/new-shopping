@@ -29,6 +29,90 @@ const productGalleryCarouselResponsive = {
   },
 };
 
+const ProductSingleDetailsLoader: React.FC = () => {
+  return (
+    <div className="product-detail animate-pulse">
+      {/* Gallery Section */}
+      <div className="product-detail__gallery-layout w-full">
+        <div className="product-detail__thumbnails-col">
+          {[1, 2, 3, 4].map((i) => (
+            <div
+              key={i}
+              className="w-full aspect-[3/4] bg-gray-100 rounded-md"
+            />
+          ))}
+        </div>
+        <div className="product-detail__main-preview-col">
+          <div className="w-full aspect-[3/4] bg-gray-150 rounded-md" />
+          <div className="h-3 w-32 bg-gray-150 rounded mx-auto mt-4" />
+        </div>
+      </div>
+
+      {/* Info Section */}
+      <div className="product-detail__info space-y-6">
+        {/* Breadcrumbs */}
+        <div className="h-3 w-48 bg-gray-100 rounded" />
+
+        {/* Title */}
+        <div className="space-y-2 mt-4">
+          <div className="h-8 w-2/3 bg-gray-150 rounded" />
+          <div className="h-4 w-1/3 bg-gray-100 rounded" />
+        </div>
+
+        {/* Price Wrap */}
+        <div className="space-y-1 mt-6">
+          <div className="h-6 w-24 bg-gray-150 rounded" />
+          <div className="h-3 w-32 bg-gray-100 rounded" />
+        </div>
+
+        {/* Sizes Attribute */}
+        <div className="space-y-3 mt-6">
+          <div className="h-3.5 w-16 bg-gray-150 rounded" />
+          <div className="flex gap-2">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="w-12 h-10 bg-gray-100 rounded border border-gray-200" />
+            ))}
+          </div>
+        </div>
+
+        {/* Colors Attribute */}
+        <div className="space-y-3 mt-6">
+          <div className="h-3.5 w-16 bg-gray-150 rounded" />
+          <div className="flex gap-3">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="w-8 h-8 rounded-full bg-gray-150" />
+            ))}
+          </div>
+        </div>
+
+        {/* Cart Action Row */}
+        <div className="flex items-center gap-3 mt-8">
+          <div className="w-24 h-12 bg-gray-100 rounded-md" />
+          <div className="flex-1 h-12 bg-gray-150 rounded-md" />
+        </div>
+        <div className="h-3 w-56 bg-gray-100 rounded mx-auto mt-2" />
+
+        {/* Description Lines */}
+        <div className="space-y-2 mt-6">
+          <div className="h-3 w-full bg-gray-100 rounded" />
+          <div className="h-3 w-full bg-gray-100 rounded" />
+          <div className="h-3 w-4/5 bg-gray-100 rounded" />
+        </div>
+
+        {/* Accordions */}
+        <div className="border-t border-gray-200 pt-4 space-y-4 mt-8">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="flex justify-between items-center py-3 border-b border-gray-100">
+              <div className="h-4 w-32 bg-gray-100 rounded" />
+              <div className="h-4 w-4 bg-gray-100 rounded" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ProductSingleDetails: React.FC = () => {
   const {
     query: { slug },
@@ -61,7 +145,7 @@ const ProductSingleDetails: React.FC = () => {
     }
   );
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <ProductSingleDetailsLoader />;
 
   const variations = getVariations(data?.variations);
   const isSelected = !isEmpty(variations)

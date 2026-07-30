@@ -10,6 +10,7 @@ import { useTranslation } from 'next-i18next';
 
 import { useRouter } from 'next/router';
 import CheckoutHeader from '@components/layout/header/checkout-header';
+import { usePageTitle } from '@utils/use-page-title';
 
 export default function Layout({ children }: React.PropsWithChildren<{}>) {
 	const { acceptedCookies, onAcceptCookies } = useAcceptCookies();
@@ -17,6 +18,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
 	const router = useRouter();
 	const isCheckoutFlow = router.pathname === '/checkout' || router.pathname === '/order';
 	const isAccountPage = router.pathname.startsWith('/my-account');
+	const pageTitle = usePageTitle();
 
 	return (
 		<div className="flex flex-col min-h-screen">
@@ -27,7 +29,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
 						content: 'width=device-width, initial-scale=1.0',
 					},
 				]}
-				title="Mahara - React Next E-commerce Template"
+				title={pageTitle}
 				description="Fastest E-commerce template built with React, NextJS, TypeScript, @tanstack/react-query."
 				canonical="https://mahara.vercel.app/"
 				openGraph={{

@@ -85,6 +85,12 @@ const ProductCard: FC<ProductProps> = ({
     router.push(`${ROUTES.PRODUCT}/${product.slug}`);
   }
 
+  function handleMouseEnter() {
+    if (product?.slug) {
+      router.prefetch(`${ROUTES.PRODUCT}/${product.slug}`);
+    }
+  }
+
   function handleQuickView(e: React.MouseEvent) {
     e.stopPropagation();
     setModalData({ data: product });
@@ -97,6 +103,7 @@ const ProductCard: FC<ProductProps> = ({
       <div
         className="group cursor-pointer flex flex-col w-full h-full bg-white transition duration-300"
         onClick={handleNavigate}
+        onMouseEnter={handleMouseEnter}
         role="button"
         title={product?.name}
       >
@@ -170,6 +177,7 @@ const ProductCard: FC<ProductProps> = ({
     <div
       className={cardClass}
       onClick={handleNavigate}
+      onMouseEnter={handleMouseEnter}
       role="button"
       title={product?.name}
     >
