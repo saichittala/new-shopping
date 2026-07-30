@@ -42,7 +42,7 @@
 .category-menu__icon-leading {
     width: 20px;
     height: 20px;
-    color: var(--gray-500);
+    color: var(--gray-700);
 }
 
 .category-menu__icon-trailing {

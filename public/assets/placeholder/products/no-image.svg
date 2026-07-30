@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="100%" height="100%" style="background-color: #f9fafb; font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;">
+  <rect width="100%" height="100%" fill="#f9fafb"/>
+  <g transform="translate(0, 10)">
+    <path d="M165,190 H235 A15,15 0 0,1 250,205 V305 A15,15 0 0,1 235,320 H165 A15,15 0 0,1 150,305 V205 A15,15 0 0,1 165,190 Z" fill="none" stroke="#d1d5db" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="200" cy="255" r="24" fill="none" stroke="#d1d5db" stroke-width="3"/>
+    <circle cx="230" cy="215" r="5" fill="#d1d5db"/>
+    <path d="M185,190 L190,175 H210 L215,190 Z" fill="none" stroke="#d1d5db" stroke-width="3" stroke-linejoin="round"/>
+    <text x="200" y="360" text-anchor="middle" fill="#9ca3af" font-size="14" font-weight="500" letter-spacing="0.05em">NO IMAGE AVAILABLE</text>
+  </g>
+</svg>

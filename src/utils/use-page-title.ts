@@ -75,6 +75,7 @@ export function usePageTitle() {
 	if (pathname === '/terms') return 'Terms & Conditions | Mahara';
 	if (pathname === '/contact-us') return 'Contact Us | Mahara';
 	if (pathname === '/404') return '404 | Mahara';
+	if (pathname === '/products') return 'Products | Mahara';
 	if (pathname === '/search') {
 		const searchVal = query.q?.toString() || query.query?.toString() || '';
 		return searchVal ? `Search: "${searchVal}" | Mahara` : 'Shop | Mahara';

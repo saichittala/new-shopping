@@ -130,7 +130,7 @@
 
 /* Content */
 .accordion-collapse__content {
-    padding-bottom: var(--space-6);
+    padding-bottom: var(--space-6) !important;
     line-height: 1.85;
     font-size: var(--text-sm);
     color: var(--gray-600);
@@ -138,7 +138,18 @@
 
 @media (min-width: 768px) {
     .accordion-collapse__content {
-        padding-bottom: var(--space-7);
+        padding-bottom: var(--space-7) !important;
+    }
+}
+
+.accordion-collapse--transparent .accordion-collapse__content {
+    padding-top: var(--space-2) !important;
+    padding-bottom: var(--space-6) !important;
+}
+
+@media (min-width: 768px) {
+    .accordion-collapse--transparent .accordion-collapse__content {
+        padding-bottom: var(--space-7) !important;
     }
 }
 

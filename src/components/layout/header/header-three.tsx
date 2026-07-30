@@ -85,8 +85,8 @@ export default function Header() {
               <label htmlFor="search" className="flex items-center">
                 <span className="absolute top-0 left-0 flex items-center justify-center flex-shrink-0 w-12 h-full cursor-pointer md:w-14 focus:outline-none">
                   <SearchIcon
-                    color="text-heading"
-                    className="w-[18px] h-[18px]"
+                    color="currentColor"
+                    className="text-gray-700 w-[18px] h-[18px]"
                   />
                 </span>
                 <input
@@ -106,13 +106,13 @@ export default function Header() {
             <div className="flex items-center transition-all wishlistShopping gap-x-7 lg:gap-x-6 xl:gap-x-8 2xl:gap-x-10 ltr:pl-3 rtl:pr-3">
               <div className="flex md:gap-x-4 align-center ">
                 <WishButton />
-                <span className="hidden text-sm font-semibold transition-all duration-100 ease-in-out cursor-pointer lg:font-normal lg:block xl:text-base text-heading">
+                <span className="hidden text-sm font-semibold transition-all duration-100 ease-in-out cursor-pointer lg:font-normal lg:block xl:text-base text-gray-700">
                   {t("menu:menu-wishlist")}
                 </span>
               </div>
               <div className="hidden lg:flex md:gap-x-4 align-center">
                 <CartButton />
-                <span className="hidden text-sm font-semibold transition-all duration-100 ease-in-out cursor-pointer lg:font-normal lg:block xl:text-base text-heading">
+                <span className="hidden text-sm font-semibold transition-all duration-100 ease-in-out cursor-pointer lg:font-normal lg:block xl:text-base text-gray-700">
                   {t("menu:menu-shopping")}
                 </span>
               </div>
@@ -136,12 +136,12 @@ export default function Header() {
             <AuthMenu
               isAuthorized={isAuthorized}
               href={ROUTES.ACCOUNT}
-              className="flex-shrink-0 hidden text-sm xl:text-base lg:flex focus:outline-none text-heading gap-x-3"
+              className="flex-shrink-0 hidden text-sm xl:text-base lg:flex focus:outline-none text-gray-700 gap-x-3"
               btnProps={{
                 children: (
                   <>
-                    <UserLineIcon className="w-4 xl:w-[17px] h-auto text-black" />
-                    {t("text-login")}
+                    <UserLineIcon className="w-4 xl:w-[17px] h-auto text-gray-700" />
+                    <span className="text-gray-700">{t("text-login")}</span>
                   </>
                 ),
                 onClick: handleLogin,

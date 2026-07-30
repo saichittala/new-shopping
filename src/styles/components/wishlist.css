@@ -228,3 +228,11 @@
     align-items: center;
     justify-content: flex-start;
 }
+
+.wishlist-item__add-to-cart-btn {
+    height: 32px;
+    padding: 0 var(--space-3) !important;
+    font-size: var(--text-xs) !important;
+    font-weight: var(--fw-semibold);
+    border-radius: 6px;
+}

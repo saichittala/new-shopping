@@ -10,6 +10,8 @@ import Toaster from "@components/ui/toast/toaster";
 // import { ReactQueryDevtools } from "@tanstack/react-query/devtools";
 import { appWithTranslation } from "next-i18next";
 import { DefaultSeo } from "@components/common/default-seo";
+import { NextSeo } from "next-seo";
+import { usePageTitle } from "@utils/use-page-title";
 
 import "@fontsource/satisfy";
 
@@ -38,6 +40,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
   }
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const pageTitle = usePageTitle();
 
   useEffect(() => {
     const handleStart = (url: string) => {
@@ -154,6 +157,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
             <ManagedUIContext>
               <Layout pageProps={pageProps}>
                 <DefaultSeo />
+                <NextSeo title={pageTitle} />
                 <Component {...pageProps} key={router.route} />
                 <Toaster />
               </Layout>

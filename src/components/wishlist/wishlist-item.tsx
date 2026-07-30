@@ -79,7 +79,7 @@ const WishlistItemComponent: React.FC<WishlistItemProps> = ({ item }) => {
           <Button
             onClick={handleAddToCart}
             variant="outline"
-            className="h-8 !px-3 !text-xs"
+            className="wishlist-item__add-to-cart-btn"
           >
             Add to Cart
           </Button>

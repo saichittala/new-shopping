@@ -11,42 +11,44 @@ type SearchProps = {
   onChange: (e: React.FormEvent<HTMLInputElement>) => void;
   name: string;
   value: string;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  placeholder?: string;
 };
 
 const SearchBox = React.forwardRef<HTMLInputElement, SearchProps>(
-  ({ className, onSubmit, onClear, ...rest }, ref) => {
+  ({ className, onSubmit, onClear, placeholder, ...rest }, ref) => {
     const { t } = useTranslation("forms");
     return (
       <form
-        className={cn(
-          "relative ltr:pr-12 ltr:md:pr-14 rtl:pl-12 rtl:md:pl-14 bg-white overflow-hidden rounded-md w-full",
-          className
-        )}
+        className={cn("search-box-ds", className)}
         noValidate
         role="search"
         onSubmit={onSubmit}
       >
-        <label htmlFor="search" className="flex items-center py-0.5">
-          <span className="flex items-center justify-center flex-shrink-0 w-12 h-full cursor-pointer md:w-14 focus:outline-none">
-            <SearchIcon color="text-heading" className="w-4 h-4" />
+        <label htmlFor="search" className="search-box-ds__label">
+          <span className="search-box-ds__icon-container">
+            <SearchIcon color="currentColor" className="w-4 h-4" />
           </span>
           <input
             id="search"
-            className="w-full h-12 text-sm placeholder-gray-400 outline-none text-heading lg:h-14 lg:text-base"
-            placeholder={t("placeholder-search")}
+            className="search-box-ds__input"
+            placeholder={placeholder || t("placeholder-search")}
             aria-label="Search"
             autoComplete="off"
             ref={ref}
             {...rest}
           />
         </label>
-        <button
-          type="button"
-          className="absolute top-0 flex items-center justify-center w-12 h-full text-2xl text-gray-400 transition duration-200 ease-in-out outline-none md:text-3xl ltr:right-0 rtl:left-0 md:w-14 hover:text-heading focus:outline-none"
-          onClick={onClear}
-        >
-          <IoCloseOutline className="w-6 h-6" />
-        </button>
+        {rest.value && (
+          <button
+            type="button"
+            className="search-box-ds__clear-btn"
+            onClick={onClear}
+          >
+            <IoCloseOutline className="w-5 h-5" />
+          </button>
+        )}
       </form>
     );
   }
