@@ -62,7 +62,10 @@ export default function ProductPopup() {
     setAddToCartLoader(true);
     setTimeout(() => {
       setAddToCartLoader(false);
-      setViewCartBtn(true);
+      closeModal();
+      setTimeout(() => {
+        openCart();
+      }, 300);
     }, 600);
     const item = generateCartItem(data!, attributes);
     addItemToCart(item, quantity);

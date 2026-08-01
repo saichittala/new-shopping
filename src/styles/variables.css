@@ -111,14 +111,14 @@
     --radius-2xl: 24px;
     --radius-pill: 999px;
     --radius-full: 50%; */
-    --radius-xs: 0;
-    --radius-sm: 0;
-    --radius-md: 0px;
-    --radius-lg: 0;
-    --radius-xl: 0;
-    --radius-2xl: 0;
-    --radius-pill: 0;
-    --radius-full: 0;
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-pill: 999px;
+    --radius-full: 50%;
     --radius-base: var(--radius-md);
 
     /* ── SHADOWS (Untitled UI Soft Shadows) ── */

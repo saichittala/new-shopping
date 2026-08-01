@@ -11,9 +11,8 @@ import isEmpty from "lodash/isEmpty";
 import { ProductAttributes } from "./product-attributes";
 import Carousel from "@components/ui/carousel/carousel";
 import { SwiperSlide } from "swiper/react";
-import { useSsrCompatible } from "@utils/use-ssr-compatible";
-import { useWindowSize } from "@utils/use-window-size";
 import ProductMetaReview from "./product-meta-review";
+import { useUI } from "@contexts/ui.context";
 import useBreadcrumb, { convertBreadcrumbTitle } from "@utils/use-breadcrumb";
 import { useTranslation } from "next-i18next";
 import cn from "classnames";
@@ -126,7 +125,7 @@ const ProductSingleDetails: React.FC = () => {
   const {
     query: { slug },
   } = useRouter();
-  const { width } = useSsrCompatible(useWindowSize(), { width: 0, height: 0 });
+  const { openCart } = useUI();
   const { data, isLoading } = useProductQuery(slug as string);
   const { addItemToCart } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
@@ -247,7 +246,10 @@ const ProductSingleDetails: React.FC = () => {
   function addToCart() {
     if (!isSelected) return;
     setAddToCartLoader(true);
-    setTimeout(() => setAddToCartLoader(false), 600);
+    setTimeout(() => {
+      setAddToCartLoader(false);
+      openCart();
+    }, 600);
     const item = generateCartItem(data!, attributes);
     addItemToCart(item, quantity);
   }
@@ -277,9 +279,9 @@ const ProductSingleDetails: React.FC = () => {
 
   return (
     <div className="product-detail">
-      {/* Gallery */}
-      {width < 1025 ? (
-        hasMultipleImages ? (
+      {/* Mobile/Tablet Gallery */}
+      <div className="product-detail__gallery-mobile">
+        {hasMultipleImages ? (
           <Carousel
             pagination={{ clickable: true }}
             breakpoints={productGalleryCarouselResponsive}
@@ -316,175 +318,176 @@ const ProductSingleDetails: React.FC = () => {
               onError={() => handleImageError(finalGallery[0]?.original)}
             />
           </div>
-        )
-      ) : (
-        <div className="product-detail__gallery-layout">
-          {/* Thumbnails Sidebar */}
-          {hasMultipleImages && (
-            <div className="product-detail__thumbnails-col">
-              {finalGallery.map((item, index: number) => (
-                <div
-                  key={index}
-                  className={`product-detail__thumbnail ${
-                    index === activeImageIdx ? "product-detail__thumbnail--active" : ""
-                  }`}
-                  onMouseEnter={() => setActiveImageIdx(index)}
-                  onClick={() => setActiveImageIdx(index)}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={
-                      item?.thumbnail ??
-                      "/assets/placeholder/products/no-image.svg"
-                    }
-                    alt={`${data?.name}--thumb-${index}`}
-                    onError={() => handleImageError(item.original)}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+        )}
+      </div>
 
-          {/* Main Active Image Preview Column */}
-          <div
-            ref={shareContainerRef}
-            className={cn("product-detail__main-preview-col", {
-              "product-detail__main-preview-col--single": !hasMultipleImages
-            })}
-          >
-            {/* Floating Share Button at Top Right of Image Column */}
-            <div className="product-detail__image-share-container">
-              <button
-                type="button"
-                className="product-detail__image-share-btn"
-                onClick={() => setShowSharePopup(!showSharePopup)}
+      {/* Desktop Gallery */}
+      <div className="product-detail__gallery-layout product-detail__gallery-desktop">
+        {/* Thumbnails Sidebar */}
+        {hasMultipleImages && (
+          <div className="product-detail__thumbnails-col">
+            {finalGallery.map((item, index: number) => (
+              <div
+                key={index}
+                className={`product-detail__thumbnail ${
+                  index === activeImageIdx ? "product-detail__thumbnail--active" : ""
+                }`}
+                onMouseEnter={() => setActiveImageIdx(index)}
+                onClick={() => setActiveImageIdx(index)}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M7 11C6.07003 11 5.60504 11 5.22354 11.1022C4.18827 11.3796 3.37962 12.1883 3.10222 13.2235C3 13.605 3 14.07 3 15V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V15C21 14.07 21 13.605 20.8978 13.2235C20.6204 12.1883 19.8117 11.3796 18.7765 11.1022C18.395 11 17.93 11 17 11M16 7L12 3M12 3L8 7M12 3V15"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={
+                    item?.thumbnail ??
+                    "/assets/placeholder/products/no-image.svg"
+                  }
+                  alt={`${data?.name}--thumb-${index}`}
+                  onError={() => handleImageError(item.original)}
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
-              {/* Share Popup Card */}
-              {showSharePopup && (
-                <div className="product-detail__share-popup" onClick={(e) => e.stopPropagation()}>
-                  <h4 className="share-popup__title">Share this product</h4>
-                  <div className="share-popup__socials">
-                    <FacebookShareButton url={shareUrl}>
-                      <FacebookIcon size={32} round />
-                    </FacebookShareButton>
-                    <TwitterShareButton url={shareUrl} title={data?.name}>
-                      <TwitterIcon size={32} round />
-                    </TwitterShareButton>
-                    <LinkedinShareButton url={shareUrl} title={data?.name}>
-                      <LinkedinIcon size={32} round />
-                    </LinkedinShareButton>
-                    <a
-                      href={`https://api.whatsapp.com/send?text=${encodeURIComponent(data?.name + " - " + shareUrl)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#25D366">
-                        <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.37 5.054L2 22l5.13-1.346a9.921 9.921 0 0 0 4.881 1.279h.005c5.505 0 9.99-4.478 9.99-9.985 0-2.667-1.037-5.176-2.927-7.067C17.195 3.012 14.685 2 12.012 2zm5.72 13.916c-.246.697-1.242 1.347-1.782 1.405-.49.053-1.127.094-3.23-.78-2.692-1.12-4.425-3.87-4.56-4.05-.13-.18-1.077-1.44-1.077-2.748 0-1.309.68-1.95.922-2.213.242-.262.532-.328.71-.328.177 0 .355.002.508.01.157.009.37-.06.577.447.214.524.733 1.796.797 1.928.064.13.107.283.02.457-.086.174-.13.282-.258.435-.127.153-.268.34-.383.457-.127.13-.26.27-.113.524.147.254.654 1.085 1.407 1.758.973.87 1.79 1.14 2.046 1.27.256.13.407.11.558-.063.153-.173.655-.764.832-1.025.176-.26.353-.218.595-.127.243.09 1.543.733 1.808.865.266.13.443.197.509.31.066.115.066.666-.18 1.363z"/>
-                      </svg>
-                    </a>
-                  </div>
-                  
-                  <div className="share-popup__copy-section">
-                    <input
-                      type="text"
-                      readOnly
-                      value={shareUrl}
-                      className="share-popup__input"
-                    />
-                    <button
-                      type="button"
-                      onClick={handleCopyLink}
-                      className="share-popup__copy-btn"
-                    >
-                      {copied ? "Copied" : "Copy Link"}
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div
-              className={`product-detail__main-preview ${
-                isZoomed ? "product-detail__main-preview--zoomed" : ""
-              }`}
-              onMouseMove={handleMouseMove}
-              onMouseEnter={() => setIsZoomed(true)}
-              onMouseLeave={() => {
-                setIsZoomed(false);
-                setZoomOrigin("center");
-              }}
+        {/* Main Active Image Preview Column */}
+        <div
+          ref={shareContainerRef}
+          className={cn("product-detail__main-preview-col", {
+            "product-detail__main-preview-col--single": !hasMultipleImages
+          })}
+        >
+          {/* Floating Share Button at Top Right of Image Column */}
+          <div className="product-detail__image-share-container">
+            <button
+              type="button"
+              className="product-detail__image-share-btn"
+              onClick={() => setShowSharePopup(!showSharePopup)}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                key={activeImageIdx}
-                src={
-                  finalGallery[activeImageIdx]?.original ??
-                  "/assets/placeholder/products/no-image.svg"
-                }
-                alt={`${data?.name}--preview`}
-                onError={() => handleImageError(finalGallery[activeImageIdx]?.original)}
-                style={{
-                  transformOrigin: zoomOrigin,
-                  transform: isZoomed ? "scale(2.2)" : "scale(1)",
-                  transition: isZoomed ? "transform 0.05s ease-out" : "transform 0.2s ease-out",
-                }}
-              />
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M7 11C6.07003 11 5.60504 11 5.22354 11.1022C4.18827 11.3796 3.37962 12.1883 3.10222 13.2235C3 13.605 3 14.07 3 15V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V15C21 14.07 21 13.605 20.8978 13.2235C20.6204 12.1883 19.8117 11.3796 18.7765 11.1022C18.395 11 17.93 11 17 11M16 7L12 3M12 3L8 7M12 3V15"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
 
-              {/* Hover Gallery Arrows */}
-              {hasMultipleImages && (() => {
-                const galleryLength = finalGallery.length;
-                return (
-                  <>
-                    <button
-                      type="button"
-                      className="product-detail__preview-arrow product-detail__preview-arrow--left"
-                      onClick={() =>
-                        setActiveImageIdx((prev) =>
-                          prev === 0 ? galleryLength - 1 : prev - 1
-                        )
-                      }
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                      </svg>
-                    </button>
-                    <button
-                      type="button"
-                      className="product-detail__preview-arrow product-detail__preview-arrow--right"
-                      onClick={() =>
-                        setActiveImageIdx((prev) =>
-                          prev === galleryLength - 1 ? 0 : prev + 1
-                        )
-                      }
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </>
-                );
-              })()}
-            </div>
-            
-            {/* Elegant hint note to zoom in by hovering */}
-            <div className="product-detail__zoom-note">
-              Hover image to zoom in
-            </div>
+            {/* Share Popup Card */}
+            {showSharePopup && (
+              <div className="product-detail__share-popup" onClick={(e) => e.stopPropagation()}>
+                <h4 className="share-popup__title">Share this product</h4>
+                <div className="share-popup__socials">
+                  <FacebookShareButton url={shareUrl}>
+                    <FacebookIcon size={32} round />
+                  </FacebookShareButton>
+                  <TwitterShareButton url={shareUrl} title={data?.name}>
+                    <TwitterIcon size={32} round />
+                  </TwitterShareButton>
+                  <LinkedinShareButton url={shareUrl} title={data?.name}>
+                    <LinkedinIcon size={32} round />
+                  </LinkedinShareButton>
+                  <a
+                    href={`https://api.whatsapp.com/send?text=${encodeURIComponent(data?.name + " - " + shareUrl)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#25D366">
+                      <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.37 5.054L2 22l5.13-1.346a9.921 9.921 0 0 0 4.881 1.279h.005c5.505 0 9.99-4.478 9.99-9.985 0-2.667-1.037-5.176-2.927-7.067C17.195 3.012 14.685 2 12.012 2zm5.72 13.916c-.246.697-1.242 1.347-1.782 1.405-.49.053-1.127.094-3.23-.78-2.692-1.12-4.425-3.87-4.56-4.05-.13-.18-1.077-1.44-1.077-2.748 0-1.309.68-1.95.922-2.213.242-.262.532-.328.71-.328.177 0 .355.002.508.01.157.009.37-.06.577.447.214.524.733 1.796.797 1.928.064.13.107.283.02.457-.086.174-.13.282-.258.435-.127.153-.268.34-.383.457-.127.13-.26.27-.113.524.147.254.654 1.085 1.407 1.758.973.87 1.79 1.14 2.046 1.27.256.13.407.11.558-.063.153-.173.655-.764.832-1.025.176-.26.353-.218.595-.127.243.09 1.543.733 1.808.865.266.13.443.197.509.31.066.115.066.666-.18 1.363z"/>
+                    </svg>
+                  </a>
+                </div>
+                
+                <div className="share-popup__copy-section">
+                  <input
+                    type="text"
+                    readOnly
+                    value={shareUrl}
+                    className="share-popup__input"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleCopyLink}
+                    className="share-popup__copy-btn"
+                  >
+                    {copied ? "Copied" : "Copy Link"}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div
+            className={`product-detail__main-preview ${
+              isZoomed ? "product-detail__main-preview--zoomed" : ""
+            }`}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsZoomed(true)}
+            onMouseLeave={() => {
+              setIsZoomed(false);
+              setZoomOrigin("center");
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              key={activeImageIdx}
+              src={
+                finalGallery[activeImageIdx]?.original ??
+                "/assets/placeholder/products/no-image.svg"
+              }
+              alt={`${data?.name}--preview`}
+              onError={() => handleImageError(finalGallery[activeImageIdx]?.original)}
+              style={{
+                transformOrigin: zoomOrigin,
+                transform: isZoomed ? "scale(2.2)" : "scale(1)",
+                transition: isZoomed ? "transform 0.05s ease-out" : "transform 0.2s ease-out",
+              }}
+            />
+
+            {/* Hover Gallery Arrows */}
+            {hasMultipleImages && (() => {
+              const galleryLength = finalGallery.length;
+              return (
+                <>
+                  <button
+                    type="button"
+                    className="product-detail__preview-arrow product-detail__preview-arrow--left"
+                    onClick={() =>
+                      setActiveImageIdx((prev) =>
+                        prev === 0 ? galleryLength - 1 : prev - 1
+                      )
+                    }
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    className="product-detail__preview-arrow product-detail__preview-arrow--right"
+                    onClick={() =>
+                      setActiveImageIdx((prev) =>
+                        prev === galleryLength - 1 ? 0 : prev + 1
+                      )
+                    }
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </>
+              );
+            })()}
+          </div>
+          
+          {/* Elegant hint note to zoom in by hovering */}
+          <div className="product-detail__zoom-note">
+            Hover image to zoom in
           </div>
         </div>
-      )}
+      </div>
 
       {/* Info panel */}
       <div className="product-detail__info">

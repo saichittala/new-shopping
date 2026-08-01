@@ -156,11 +156,34 @@
 }
 
 /* ── Ken Burns slider zoom effect ── */
-.carouselItem img {
+.carouselItem,
+.swiper-slide {
+  border-radius: 36px !important;
+  overflow: hidden !important;
+  transform: translateZ(0);
+  /* Fix Safari border-radius clipping */
+}
+
+.carouselItem img,
+.swiper-slide img,
+.banner-card__image,
+.swiper-slide .product-card,
+.swiper-slide .product-card__image-wrap,
+.swiper-slide .product-card__image,
+.swiper-slide .banner-card-wrap,
+.swiper-slide .banner-card__link,
+.swiper-slide .group>div,
+.swiper-slide .group img {
+  border-radius: 36px !important;
+}
+
+.carouselItem img,
+.swiper-slide img {
   transition: transform 7s cubic-bezier(0.15, 1, 0.3, 1) !important;
   transform: scale(1) !important;
 }
 
-.carouselItem.swiper-slide-active img {
+.carouselItem.swiper-slide-active img,
+.swiper-slide-active img {
   transform: scale(1.05) !important;
 }

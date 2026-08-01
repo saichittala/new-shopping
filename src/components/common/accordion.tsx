@@ -67,6 +67,7 @@ export const Collapse: React.FC<CollapseProps> = ({
             animate="to"
             exit="from"
             variants={heightCollapse()}
+            style={{ overflow: 'hidden' }}
           >
             <div className="accordion-collapse__content">
               {contentKey ? t(contentKey) : content}

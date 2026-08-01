@@ -3,7 +3,6 @@ import Link from '@components/ui/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { fadeInOut } from '@utils/motion/fade-in-out';
-import { IoIosCloseCircle } from 'react-icons/io';
 import { useCart } from '@contexts/cart/cart.context';
 import { useWishlist, WishlistItem } from '@contexts/wishlist.context';
 import usePrice from '@framework/product/use-price';
@@ -51,7 +50,9 @@ const WishlistItemComponent: React.FC<WishlistItemProps> = ({ item }) => {
         onClick={() => removeItemFromWishlist(item.id)}
         aria-label="Remove item"
       >
-        <IoIosCloseCircle />
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </button>
 
       {/* Image */}

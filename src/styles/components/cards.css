@@ -3,9 +3,16 @@
    ============================================================= */
 
 .card,
-.product-card,
 .vendor-card {
     border-radius: var(--radius-lg) !important;
+    border: 1px solid transparent !important; /* Transparent border to avoid layout shift */
+    background-color: var(--white) !important;
+    box-shadow: none !important; /* No initial shadow */
+    transition: var(--transition-interactive) !important;
+}
+
+.product-card {
+    border-radius: 0 !important;
     border: 1px solid transparent !important; /* Transparent border to avoid layout shift */
     background-color: var(--white) !important;
     box-shadow: none !important; /* No initial shadow */

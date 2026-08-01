@@ -5,6 +5,9 @@
 .account-layout {
     padding: var(--space-12) 0;
     width: 100%;
+    max-width: 990px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .account-layout__container {
